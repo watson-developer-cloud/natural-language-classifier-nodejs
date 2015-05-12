@@ -51,7 +51,7 @@ $(document).ready(function() {
       .done(function onSucess(answers){
         $results.show();
         $classification.text(answers.top_class);
-        $confidence.text(Math.floor(answers.classes[0].confidence * 100) / 100 + '%');
+        $confidence.text(Math.floor(answers.classes[0].confidence * 100) + '%');
       })
       .fail(function onError(error) {
         $error.show();
