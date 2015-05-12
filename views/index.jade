@@ -9,7 +9,8 @@ block row-content
         div.col-lg-12.col-md-12.col-xs-12
           p Ask a question about the weather. 
             br
-            | Watch how the classifier service uses natural language to determine the intent behind your question.
+            | Watch Natural Language Classifier categorize the input content.
+            | In this demo, it is trained to determine whether the question is related to 'temperature' or 'conditions', and will also provide a confidence percentage score.
       div.row
         div.col-lg-10.col-md-10.col-xs-8
           input.questionText.form-control(placeholder='Enter a weather question or Try a sample question below', required='true')
@@ -27,13 +28,17 @@ block row-content
       div.results(style='display:none')
         h2 Output
         div.well
+          p Natural Language Classifier is 
+            span.confidence
+            |  confident that the question submitted is talking about '
+            span.classification
+            | '.
           p
             strong Classification: 
             span.classification
           p
             strong Confidence: 
             span.confidence
-          p Natural Language Classifier can determine what classification or type of content is passed in.  In this demo, it is trained determine whether the question is related to 'temperature' or 'condition', and will also provide a confidence percentage score.
       div.error(style='display:none;')
         h2 Error
         div.well

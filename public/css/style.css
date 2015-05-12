@@ -7,3 +7,11 @@
 .example-questions {
  margin: 5px;
 }
+
+.confidence {
+	color: #00b2ef;
+}
+
+.classification {
+	color: #00b2ef;
+}
