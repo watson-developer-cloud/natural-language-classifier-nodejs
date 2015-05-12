@@ -1,4 +1,4 @@
-# Natural Language Classifier Starter Application
+# Natural Language Classifier Nodejs Starter Application
 
   The IBM Watson [Natural Language Classifier service][service_url] applies deep learning techniques to make predictions about the best predefined classes for short sentences or phrases. The classes can trigger a corresponding action in an application, such as directing a request to a location or person, or answering a question. After training, the service returns information for texts that it hasn't seen before. The response includes the name of the top classes and confidence values.
 
