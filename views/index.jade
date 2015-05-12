@@ -7,15 +7,17 @@ block row-content
       h2 Try the service
       div.row
         div.col-lg-12.col-md-12.col-xs-12
-          p See how the classifier service uses natural language to determine the intent behind your question. Ask a question about the weather, and watch as the service classifies the intent as 'temperature' or 'condition' related.
+          p Ask a question about the weather. 
+            br
+            | Watch how the classifier service uses natural language to determine the intent behind your question.
       div.row
         div.col-lg-10.col-md-10.col-xs-8
-          input.questionText.form-control(placeholder='Enter your weather question...', required='true')
+          input.questionText.form-control(placeholder='Enter a weather question or Try a sample question below', required='true')
         div.col-lg-2.col-md-2.col-xs-4
           button.btn.btn-block.ask-btn Ask
       div.row
         div.col-lg-12.col-md-12.col-xs-12
-          h4 Try a sample question
+          h4 Sample Questions:
           div.example-questions
     div.col-lg-12
       div.row.loading(style='display:none')
@@ -31,6 +33,7 @@ block row-content
           p
             strong Confidence: 
             span.confidence
+          p Natural Language Classifier can determine what classification or type of content is passed in.  In this demo, it is trained determine whether the question is related to 'temperature' or 'condition', and will also provide a confidence percentage score.
       div.error(style='display:none;')
         h2 Error
         div.well
