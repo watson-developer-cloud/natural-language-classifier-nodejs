@@ -30,7 +30,7 @@ var credentials = extend({
   url : '<url>',
   username : '<username>',
   password : '<password>',
-  classifier_id: '4591EC-nlc-70' // pre-trained classifier
+  classifier_id: '<classifier-id>' // pre-trained classifier
 }, bluemix.getServiceCreds('natural_language_classifier')); // VCAP_SERVICES
 
 
