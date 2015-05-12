@@ -36,8 +36,9 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
   ```sh
   $ cf create-service natural-language-classifier free natural-language-classifier-service
   ```
+6. Create and train your [classifier](https://github.com/watson-developer-cloud/natural-language-classifier-nodejs-cli) and update the [app.js](app.js#L33) with the id you get when creating the classifier
 
-6. Push it live!
+7. Push it live!
   ```sh
   $ cf push
   ```
