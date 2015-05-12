@@ -1,0 +1,37 @@
+//- index.jade
+extends ./layout.jade
+
+block row-content
+  div.row
+    div.col-lg-12
+      h2 Try the service
+      div.row
+        div.col-lg-12.col-md-12.col-xs-12
+          p See how the classifier service uses natural language to determine the intent behind your question. Ask a question about the weather, and watch as the service classifies the intent as 'temperature' or 'condition' related.
+      div.row
+        div.col-lg-10.col-md-10.col-xs-8
+          input.questionText.form-control(placeholder='Enter your weather question...', required='true')
+        div.col-lg-2.col-md-2.col-xs-4
+          button.btn.btn-block.ask-btn Ask
+      div.row
+        div.col-lg-12.col-md-12.col-xs-12
+          h4 Try a sample question
+          div.example-questions
+    div.col-lg-12
+      div.row.loading(style='display:none')
+        h2 Output
+        div.col-lg-12.col-xs-12.text-center
+          img(src='images/watson.gif')
+      div.results(style='display:none')
+        h2 Output
+        div.well
+          p
+            strong Classification: 
+            span.classification
+          p
+            strong Confidence: 
+            span.confidence
+      div.error(style='display:none;')
+        h2 Error
+        div.well
+          div.errorMsg

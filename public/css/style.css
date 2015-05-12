@@ -1,0 +1,9 @@
+.errorMsg {
+  font-weight:bold;
+  color:red;
+  white-space: pre-wrap;
+}
+
+.example-questions {
+ margin: 5px;
+}
