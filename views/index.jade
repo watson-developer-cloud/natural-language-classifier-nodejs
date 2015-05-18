@@ -9,8 +9,8 @@ block row-content
         div.col-lg-12.col-md-12.col-xs-12
           p Ask a question about the weather. 
             br
-            | Watch Natural Language Classifier categorize the input content.
-            | In this demo, it is trained to determine whether the question is related to 'temperature' or 'conditions', and will also provide a confidence percentage score.
+            | Watch the Natural Language Classifier categorize your weather-related question.
+            | In this demo, the classifier is trained to determine whether the question is related to temperature or weather conditions. The output includes the top classification and a confidence score.
       div.row
         div.col-lg-10.col-md-10.col-xs-8
           input.questionText.form-control(placeholder='Enter a weather question or Try a sample question below', required='true')
@@ -18,8 +18,14 @@ block row-content
           button.btn.btn-block.ask-btn Ask
       div.row
         div.col-lg-12.col-md-12.col-xs-12
-          h4 Sample Questions:
+          h4 Sample questions
           div.example-questions
+      div.row
+        div.col-lg-12.col-md-12.col-xs-12
+          p 
+          | The classifier often scores well with terms that it hasn't been trained on. In the sample questions, the words "sleet," "foggy," and "typhoon" are not part of the 
+          a(href='https://github.com/watson-developer-cloud/natural-language-classifier-nodejs-cli/blob/master/resources/weather_data_train.json', target='_blank') training data
+          | , yet the classifier correctly handles questions about them. 
     div.col-lg-12
       div.row.loading(style='display:none')
         h2 Output
