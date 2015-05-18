@@ -64,10 +64,10 @@ $(document).ready(function() {
 
   [
     'Is it hot outside?',
-    'Will it be windy?',
-    'Will we see some sun?',
     'What is the expected high for today?',
-    'Will it be foggy tomorrow morning?'
+    'Will it be foggy tomorrow morning?',
+    'Should I prepare for sleet?',
+    'Is there a typhoon coming?'
   ].forEach(function(question){
     $('<a>').text(question)
       .mousedown(function() {
