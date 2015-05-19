@@ -32,7 +32,7 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
   $ cf login -u <your user ID>
   ```
 
-5. Create the Question Prediction service in Bluemix.
+5. Create the Natural Language Classifier service in Bluemix.
   ```sh
   $ cf create-service natural-language-classifier free natural-language-classifier-service
   ```
