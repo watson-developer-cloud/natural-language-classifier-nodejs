@@ -104,7 +104,7 @@ For more details, see the [Getting Started][getting_started] documentation for t
 	node app.js
 	```
 
-6. Point your browser to http://localhost:3000`
+6. Point your browser to http://localhost:3000.
 
 ## Troubleshooting
 
