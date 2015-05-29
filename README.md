@@ -45,7 +45,11 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
 	$ cf push
 	```
 
+	For more details about developing applications that use Watson Developer Cloud services in Bluemix, see [Getting started with Watson Developer Cloud and Bluemix][getting_started].
+
 1. To get the app to respond to input, you need to train the classifier. For information about how to train with the sample data, see the [tutorial](https://github.com/watson-developer-cloud/natural-language-classifier-nodejs-cli#stage-3-create-and-train-a-classifier).
+
+
 
 ## Running locally
 1. Download and install [Node.js](http://nodejs.org/) and [npm](https://www.npmjs.com/).
@@ -115,7 +119,7 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
   $ cf logs <application-name> --recent
   ```
 
-* For more details about the service, see the [documentation][getting_started] for the Natural Language Classifier.
+* For more details about the service, see the [documentation][nlc_docs] for the Natural Language Classifier.
 
 ## License
 
@@ -130,5 +134,6 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
 
 [cloud_foundry]: https://github.com/cloudfoundry/cli
 [getting_started]: http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/getting_started/
+[nlc_docs]: http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/nl-classifier/
 [sign_up]: https://apps.admin.ibmcloud.com/manage/trial/bluemix.html?cm_mmc=WatsonDeveloperCloud-_-LandingSiteGetStarted-_-x-_-CreateAnAccountOnBluemixCLI
 [service_url]: http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/nl-classifier/
