@@ -8,78 +8,101 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
 
 ## Getting Started
 
-1. Create a Bluemix Account
+1. You need a Bluemix account. If you don't have one, [sign up][sign_up]. Experimental Watson Services are free to use.
 
-    [Sign up][sign_up] in Bluemix, or use an existing account. Watson Services in Beta are free to use.
+1. Download and install the [Cloud-foundry CLI][cloud_foundry] tool if you haven't already.
 
-2. Download and install the [Cloud-foundry CLI][cloud_foundry] tool
+1. Edit the `manifest.yml` file and change `<application-name>` to something unique. The name you use determines the URL of your application. For example, `<application-name>.mybluemix.net`.
+	
+	```
+	applications:
+	- services:
+	  - natural-language-classifier-service
+	  name: <application-name>
+	  command: node app.js
+	  path: .
+	  memory: 128M
+	```
 
-3. Edit the `manifest.yml` file and change the `<application-name>` to something unique.
-  ```none
-  applications:
-  - services:
-    - natural-language-classifier-service
-    name: <application-name>
-    command: node app.js
-    path: .
-    memory: 128M
-  ```
-  The name you use will determinate your application url initially, e.g. `<application-name>.mybluemix.net`.
+1. Connect to Bluemix with the command line tool.
+	
+	```sh
+	$ cf api https://api.ng.bluemix.net
+	$ cf login -u <your user ID>
+	```
 
-4. Connect to Bluemix in the command line tool.
-  ```sh
-  $ cf api https://api.ng.bluemix.net
-  $ cf login -u <your user ID>
-  ```
+1. Create the Natural Language Classifier service in Bluemix.
+	
+	```sh
+	$ cf create-service natural_language_classifier free natural-language-classifier-service
+	```
 
-5. Create the Natural Language Classifier service in Bluemix.
-  ```sh
-  $ cf create-service natural-language-classifier free natural-language-classifier-service
-  ```
-6. Create and train your [classifier](https://github.com/watson-developer-cloud/natural-language-classifier-nodejs-cli) and update the [app.js](app.js#L33) with the id you get when creating the classifier
+1. Update the [app.js](app.js#L33) file with the classifier id in the response from the API when you create the classifier.
 
-7. Push it live!
-  ```sh
-  $ cf push
-  ```
+1. Push your app to make it live:
 
-See the full [Getting Started][getting_started] documentation for more details, including code snippets and references.
+	```sh
+	$ cf push
+	```
+
+For more details, see the [Getting Started][getting_started] documentation for the Natural Language Classifier.
 
 ## Running locally
-  The application uses [Node.js](http://nodejs.org/) and [npm](https://www.npmjs.com/) so you will have to download and install them as part of the steps below.
+1. Download and install [Node.js](http://nodejs.org/) and [npm](https://www.npmjs.com/).
 
-1. Copy the credentials from your `natural-language-classifier-service` service in Bluemix to `app.js`, you can see the credentials using:
+1. Configure the code to connect to your service:
 
-    ```sh
-    $ cf env <application-name>
-    ```
-    Example output:
-    ```sh
-    System-Provided:
-    {
-    "VCAP_SERVICES": {
-      "natural-language-classifier": [{
-          "credentials": {
-            "url": "<url>",
-            "password": "<password>",
-            "username": "<username>"
-          },
-        "label": "natural-language-classifier",
-        "name": "natural-language-classifier-service",
-        "plan": "free"
-     }]
-    }
-    }
-    ```
+	1. Copy the credentials from your `natural-language-classifier-service` service in Bluemix. Run the following command:
 
-    You need to copy `username`, `password` and `url`.
+		```sh
+		$ cf env <application-name>
+		```
 
-2. Install [Node.js](http://nodejs.org/)
-3. Go to the project folder in a terminal and run:
-    `npm install`
-4. Start the application
-5.  `node app.js`
-6. Go to `http://localhost:3000`
+		Example output:
+
+		```sh
+		System-Provided:
+		{
+		  "VCAP_SERVICES": {
+			"natural_language_classifier": [
+			  {
+				"credentials": {
+				  "password": "<password>",
+				  "url": "<url>",
+				  "username": "<username>"
+				}
+				"label": "natural-language-classifier",
+				"name": "natural-language-classifier-service",
+				"plan": "free",
+				"tags": [
+				  ... 
+				]
+			  }
+			]
+		  }
+		}
+		```
+
+	1. Copy `username`, `password`, and `url` from the credentials.
+	1. Open the `app.js` file and paste the username, password, and url credentials for the service.
+	1. Save the `creds.js` file.
+
+
+1. Install the Natural Language Classifier Node.js package:
+	1. Change to the new directory that contains the project. 
+	2. Run the following command:node
+
+	```node
+	$ npm install
+	```
+
+1. Run the following command to start the application:
+
+	```node
+	node app.js
+	```
+
+6. Point your browser to [http://localhost:3000](http://localhost:3000).
 
 ## Troubleshooting
 
