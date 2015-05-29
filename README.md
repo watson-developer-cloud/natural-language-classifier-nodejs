@@ -6,7 +6,7 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
 
 [![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/watson-developer-cloud/natural-language-classifier-nodejs)
 
-## Getting Started
+## Getting started
 
 1. You need a Bluemix account. If you don't have one, [sign up][sign_up]. Experimental Watson Services are free to use.
 
@@ -45,7 +45,11 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
 	$ cf push
 	```
 
-For more details, see the [Getting Started][getting_started] documentation for the Natural Language Classifier.
+	For more details about developing applications that use Watson Developer Cloud services in Bluemix, see [Getting started with Watson Developer Cloud and Bluemix][getting_started].
+
+1. To get the app to respond to input, you need to train the classifier. For information about how to train with the sample data, see the [tutorial](https://github.com/watson-developer-cloud/natural-language-classifier-nodejs-cli#stage-3-create-and-train-a-classifier).
+
+
 
 ## Running locally
 1. Download and install [Node.js](http://nodejs.org/) and [npm](https://www.npmjs.com/).
@@ -102,15 +106,20 @@ For more details, see the [Getting Started][getting_started] documentation for t
 	node app.js
 	```
 
-6. Point your browser to [http://localhost:3000](http://localhost:3000).
+1. Point your browser to [http://localhost:3000](http://localhost:3000).
+
+1. Train the classifier, if you haven't already. See the step earlier under Getting started.
+
 
 ## Troubleshooting
 
-To troubleshoot your Bluemix app the main useful source of information are the logs, to see them, run:
+* The main source of troubleshooting and recovery information is the Bluemix log. To view the log, run the following command:
 
   ```sh
   $ cf logs <application-name> --recent
   ```
+
+* For more details about the service, see the [documentation][nlc_docs] for the Natural Language Classifier.
 
 ## License
 
@@ -125,5 +134,6 @@ To troubleshoot your Bluemix app the main useful source of information are the l
 
 [cloud_foundry]: https://github.com/cloudfoundry/cli
 [getting_started]: http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/getting_started/
+[nlc_docs]: http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/nl-classifier/
 [sign_up]: https://apps.admin.ibmcloud.com/manage/trial/bluemix.html?cm_mmc=WatsonDeveloperCloud-_-LandingSiteGetStarted-_-x-_-CreateAnAccountOnBluemixCLI
 [service_url]: http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/nl-classifier/
