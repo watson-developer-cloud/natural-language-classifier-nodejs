@@ -20,7 +20,7 @@ var express    = require('express'),
   app          = express(),
   bluemix      = require('./config/bluemix'),
   extend       = require('util')._extend,
-  NLClassifier = require('./natural-language-classifier');
+  watson       = require('watson-developer-cloud');
 
 // Bootstrap application settings
 require('./config/express')(app);
@@ -30,20 +30,25 @@ var credentials = extend({
   url : '<url>',
   username : '<username>',
   password : '<password>',
-  classifier_id: '<classifier-id>' // pre-trained classifier
 }, bluemix.getServiceCreds('natural_language_classifier')); // VCAP_SERVICES
 
-
 // Create the service wrapper
-var nlClassifier = new NLClassifier(credentials);
+var nlClassifier = watson.natural_language_classifier(credentials);
 
 // render index page
 app.get('/', function(req, res) {
   res.render('index');
 });
 
+// Call the pre-trained classifier with body.text
+// Responses are json
 app.post('/', function(req, res, next) {
-  nlClassifier.classify(req.body, function(err, results) {
+  var params = {
+    classifier: '<classifier-id>' // pre-trained classifier
+    text: req.body.text
+  };
+
+  nlClassifier.classify(params, function(err, results) {
     if (err)
       return next(err);
     else
