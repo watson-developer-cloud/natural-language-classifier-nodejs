@@ -27,6 +27,7 @@ require('./config/express')(app);
 
 // if bluemix credentials exists, then override local
 var credentials = extend({
+  version: 'v1',
   url : '<url>',
   username : '<username>',
   password : '<password>',
@@ -44,7 +45,7 @@ app.get('/', function(req, res) {
 // Responses are json
 app.post('/', function(req, res, next) {
   var params = {
-    classifier: '<classifier-id>' // pre-trained classifier
+    classifier: '<classifier-id>', // pre-trained classifier
     text: req.body.text
   };
 
