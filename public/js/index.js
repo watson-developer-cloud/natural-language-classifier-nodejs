@@ -55,7 +55,8 @@ $(document).ready(function() {
       })
       .fail(function onError(error) {
         $error.show();
-        $errorMsg.text(error.responseJSON.error || 'There was a problem with the request, please try again');
+        $errorMsg.text(error.responseJSON.error ||
+         'There was a problem with the request, please try again');
       })
       .always(function always(){
         $loading.hide();
@@ -74,8 +75,6 @@ $(document).ready(function() {
         askQuestion(question);
         return false;
       })
-      .css('display','block')
-      .css('cursor','pointer')
       .appendTo('.example-questions');
   });
 

@@ -8,10 +8,19 @@
  margin: 5px;
 }
 
+.example-questions a {
+	display: block;
+	cursor: pointer;
+	text-decoration: none;
+}
 .confidence {
 	color: #00b2ef;
 }
 
 .classification {
 	color: #00b2ef;
+}
+.ask-btn {
+	height: 2.5em;
+	padding: 0em;
 }
