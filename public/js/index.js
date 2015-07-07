@@ -40,7 +40,10 @@ $(document).ready(function() {
   });
 
   // Ask a question via POST to /
-  var askQuestion = function(question){
+  var askQuestion = function(question) {
+    if ($.trim(question))
+      return;
+
     $question.val(question);
 
     $loading.show();
