@@ -23,13 +23,13 @@ block row-content
             p.help-block The classifier often scores well with terms that it hasn't been trained on. In the sample questions, the words "sleet," "foggy," and "typhoon" are not part of the 
               a(href='https://github.com/watson-developer-cloud/natural-language-classifier-nodejs-cli/blob/master/resources/weather_data_train.json', target='_blank') training data
               | , yet the classifier correctly handles questions about them. 
-      div.col-lg-12
-        div.row.loading(style='display:none')
+      div.col-lg-12(style='height:300px;')
+        div.row
           h2 Output
+        div.row.loading(style='display:none')
           div.col-lg-12.col-xs-12.text-center
             img(src='images/watson.gif')
         div.results(style='display:none')
-          h2 Output
           div.well
             p Natural Language Classifier is 
               span.confidence
