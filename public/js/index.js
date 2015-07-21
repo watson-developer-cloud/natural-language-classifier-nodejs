@@ -72,7 +72,7 @@ $(document).ready(function() {
     'What is the expected high for today?',
     'Will it be foggy tomorrow morning?',
     'Should I prepare for sleet?',
-    'Is there a typhoon coming?'
+    'Will there be a storm today?'
   ].forEach(function(question){
     $('<a>').text(question)
       .mousedown(function() {
