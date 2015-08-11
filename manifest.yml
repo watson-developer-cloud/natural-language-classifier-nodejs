@@ -1,7 +1,7 @@
 declared-services:
   natural-language-classifier-service:
     label: natural_language_classifier
-    plan: beta
+    plan: standard
 applications:
 - services:
   - natural-language-classifier-service
