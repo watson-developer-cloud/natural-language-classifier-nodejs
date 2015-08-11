@@ -47,7 +47,7 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
 
 	For more details about developing applications that use Watson Developer Cloud services in Bluemix, see [Getting started with Watson Developer Cloud and Bluemix][getting_started].
 
-1. To get the app to respond to input, you need to train the classifier. For information about how to train with the sample data, see the [tutorial](https://github.com/watson-developer-cloud/natural-language-classifier-nodejs-cli#stage-3-create-and-train-a-classifier).
+1. To get the app to respond to input, you need to train the classifier. For information about how to train with the sample data, see the [tutorial](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/nl-classifier/get_start.shtml).
 
 
 
