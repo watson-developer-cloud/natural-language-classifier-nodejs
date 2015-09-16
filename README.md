@@ -54,6 +54,10 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
 ## Running locally
 1. Download and install [Node.js](http://nodejs.org/) and [npm](https://www.npmjs.com/).
 
+1. Create an instance of the Natural Language Classifier service on Bluemix. 
+
+1. [Create and train](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/nl-classifier/get_start.shtml#create) the NLC service using say the weather training data. Take a note of the "Classifier ID" that you get back when training the service.
+
 1. Configure the code to connect to your service:
 
 	1. Copy the credentials from your `natural-language-classifier-service` service in Bluemix. Run the following command:
@@ -89,7 +93,7 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
 
 	1. Copy `username`, `password`, and `url` from the credentials.
 	1. Open the `app.js` file and paste the username, password, and url credentials for the service.
-	1. Save the `creds.js` file.
+	1. In the `app.js` file paste the "Classifier ID". Save the `app.js` file.
 
 
 1. Install the Natural Language Classifier Node.js package:
