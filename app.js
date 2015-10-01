@@ -45,7 +45,7 @@ app.get('/', function(req, res) {
 // Responses are json
 app.post('/', function(req, res, next) {
   var params = {
-    classifier: '<classifier-id>', // pre-trained classifier
+    classifier: process.env.CLASSIFIER_ID || '<classifier-id>', // pre-trained classifier
     text: req.body.text
   };
 

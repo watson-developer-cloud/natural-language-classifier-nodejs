@@ -47,12 +47,16 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
 
 	For more details about developing applications that use Watson Developer Cloud services in Bluemix, see [Getting started with Watson Developer Cloud and Bluemix][getting_started].
 
-1. To get the app to respond to input, you need to train the classifier. For information about how to train with the sample data, see the [tutorial](https://github.com/watson-developer-cloud/natural-language-classifier-nodejs-cli#stage-3-create-and-train-a-classifier).
+1. To get the app to respond to input, you need to train the classifier. For information about how to train with the sample data, see the [tutorial](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/nl-classifier/get_start.shtml).
 
 
 
 ## Running locally
 1. Download and install [Node.js](http://nodejs.org/) and [npm](https://www.npmjs.com/).
+
+1. Create an instance of the Natural Language Classifier service on Bluemix. 
+
+1. [Create and train](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/nl-classifier/get_start.shtml#create) the NLC service using say the weather training data. Take a note of the "Classifier ID" that you get back when training the service.
 
 1. Configure the code to connect to your service:
 
@@ -89,7 +93,7 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
 
 	1. Copy `username`, `password`, and `url` from the credentials.
 	1. Open the `app.js` file and paste the username, password, and url credentials for the service.
-	1. Save the `creds.js` file.
+	1. In the `app.js` file paste the "Classifier ID". Save the `app.js` file.
 
 
 1. Install the Natural Language Classifier Node.js package:
