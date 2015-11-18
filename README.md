@@ -56,7 +56,7 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
 
 1. Create an instance of the Natural Language Classifier service on Bluemix. 
 
-1. [Create and train](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/nl-classifier/get_start.shtml#create) the NLC service using say the weather training data. Take a note of the "Classifier ID" that you get back when training the service.
+1. [Create and train](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/nl-classifier/get_start.shtml#create) the NLC service using, for example, the weather training data. Note the value of the `Classifier ID` in the response.
 
 1. Configure the code to connect to your service:
 
