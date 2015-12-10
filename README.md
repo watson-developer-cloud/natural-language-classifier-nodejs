@@ -12,7 +12,7 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
 
 1. Download and install the [Cloud-foundry CLI][cloud_foundry] tool if you haven't already.
 
-1. Edit the `manifest.yml` file and change `<application-name>` to something unique. The name you use determines the URL of your application. For example, `<application-name>.mybluemix.net`.
+1. Edit the `manifest.yml` file and change `<application-name>` to something unique. The name you use determines the URL of your application. For example, `<application-name>.mybluemix.net`. 
 	
 	```
 	applications:
@@ -34,10 +34,8 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
 1. Create the Natural Language Classifier service in Bluemix.
 	
 	```sh
-	$ cf create-service natural_language_classifier free natural-language-classifier-service
+	$ cf create-service natural_language_classifier standard natural-language-classifier-service
 	```
-
-1. Update the [app.js](app.js#L33) file with the classifier id in the response from the API when you create the classifier.
 
 1. Push your app to make it live:
 
@@ -45,11 +43,21 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
 	$ cf push
 	```
 
+1. [Create and train](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/nl-classifier/get_start.shtml#create) the NLC service using the weather training data. Take note of the `<classifier-id>`.
+
+1. To configure the [app.js](app.js#L48) file to use your classifier, export the classifier ID as an environment variable. 
+
+	```sh
+	$ cf set-env <application-name> CLASSIFIER_ID <classifier-id>
+	```
+
+1. Finally, restage the application to ensure the environment variable is set.
+
+	```sh
+	$ cf restage <application-name>
+	```
+
 	For more details about developing applications that use Watson Developer Cloud services in Bluemix, see [Getting started with Watson Developer Cloud and Bluemix][getting_started].
-
-1. To get the app to respond to input, you need to train the classifier. For information about how to train with the sample data, see the [tutorial](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/nl-classifier/get_start.shtml).
-
-
 
 ## Running locally
 1. Download and install [Node.js](http://nodejs.org/) and [npm](https://www.npmjs.com/).
@@ -81,7 +89,7 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
 				}
 				"label": "natural-language-classifier",
 				"name": "natural-language-classifier-service",
-				"plan": "free",
+				"plan": "standard",
 				"tags": [
 				  ... 
 				]
