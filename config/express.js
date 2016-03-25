@@ -29,7 +29,7 @@ module.exports = function (app) {
   // Setup static public directory
   app.use(express.static(__dirname + '/../public'));
 
-  // Only loaded when SECURE_EXPRESS is `true`
+  // Only loaded when SECURE_EXPRESS is `1`
   if (process.env.SECURE_EXPRESS)
     require('./security')(app);
 
