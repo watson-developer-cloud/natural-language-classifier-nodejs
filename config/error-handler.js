@@ -15,22 +15,23 @@
  */
 
 'use strict';
-
-// Module dependencies
-var express    = require('express'),
-  bodyParser   = require('body-parser');
-
 module.exports = function (app) {
-  // Configure Express
-  app.set('view engine', 'ejs');
-  app.use(bodyParser.urlencoded({ extended: true}));
-  app.use(bodyParser.json({}));
 
-  // Setup static public directory
-  app.use(express.static(__dirname + '/../public'));
+  // catch 404 and forward to error handler
+  app.use(function(req, res, next) {
+    var err = new Error('Not Found');
+    err.code = 404;
+    err.message = 'Not Found';
+    next(err);
+  });
 
-  // Only loaded when SECURE_EXPRESS is `true`
-  if (process.env.SECURE_EXPRESS)
-    require('./security')(app);
+  // error handler
+  app.use(function(err, req, res, next) {
+    var error = {
+      code: err.code || 500,
+      error: err.error || err.message
+    };
+    res.status(error.code).json(error);
+  });
 
 };

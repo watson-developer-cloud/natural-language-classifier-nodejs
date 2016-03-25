@@ -1,11 +1,11 @@
 declared-services:
-  natural-language-classifier-service:
+  natural-language-classifier-standard:
     label: natural_language_classifier
     plan: standard
 applications:
 - services:
-  - natural-language-classifier-service
-  name: natural-language-classifier-nodejs
+  - natural-language-classifier-standard
+  name: natural-language-classifier-demo
   command: node app.js
   path: .
-  memory: 256M
+  memory: 512M

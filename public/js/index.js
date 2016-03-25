@@ -50,19 +50,18 @@ $(document).ready(function() {
     $error.hide();
     $results.hide();
 
-    $.post('/', {text: question})
+    $.post('/api/classify', {text: question})
       .done(function onSucess(answers){
         $results.show();
         $classification.text(answers.top_class);
         $confidence.text(Math.floor(answers.classes[0].confidence * 100) + '%');
         $('html, body').animate({ scrollTop: $(document).height() }, 'fast');
+        $loading.hide();
       })
       .fail(function onError(error) {
         $error.show();
-        $errorMsg.text(error.responseJSON.error ||
-         'There was a problem with the request, please try again');
-      })
-      .always(function always(){
+        $errorMsg.text(error.responseJSON ? error.responseJSON.error : (
+          error.responseText || 'There was a problem with the request, please try again'));
         $loading.hide();
       });
   };
@@ -82,5 +81,9 @@ $(document).ready(function() {
       .appendTo('.example-questions');
   });
 
-
+  $.ajaxSetup({
+    headers: {
+      'csrf-token': $('meta[name="ct"]').attr('content')
+    }
+  });
 });
