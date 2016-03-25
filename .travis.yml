@@ -19,3 +19,4 @@ deploy:
   on:
     branch: master
     repo: watson-developer-cloud/natural-language-classifier-nodejs
+after_failure: cf logs "$CF_APP-B" --recent

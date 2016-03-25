@@ -6,6 +6,6 @@ applications:
 - services:
   - natural-language-classifier-standard
   name: natural-language-classifier-demo
-  command: node app.js
+  command: npm start
   path: .
   memory: 512M

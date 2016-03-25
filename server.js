@@ -1,6 +1,10 @@
 #! /usr/bin/env node
 'use strict';
 
+// hack for blue-green deployments
+if (process.env.CLASSIFIER_ID){
+  process.env.CLASSIFIER_ID = process.env.CLASSIFIER_ID.replace(/\"/g,'');
+}
 // Deployment tracking
 require('cf-deployment-tracker-client').track();
 
