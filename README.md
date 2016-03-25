@@ -147,7 +147,6 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
 ## Open Source @ IBM
   Find more open source projects on the [IBM Github Page](http://ibm.github.io/)
 
-
 ### Privacy Notice
 
 The TodoMVC node sample web application includes code to track deployments to Bluemix and other Cloud Foundry platforms. The following information is sent to a [Deployment Tracker][deploy_track_url] service on each deployment:
