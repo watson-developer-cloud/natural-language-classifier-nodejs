@@ -21,3 +21,5 @@ deploy:
     branch: master
     repo: watson-developer-cloud/natural-language-classifier-nodejs
   skip_cleanup: true
+notifications:
+  email: false
