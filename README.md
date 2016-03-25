@@ -1,4 +1,4 @@
-# Natural Language Classifier Nodejs Starter Application
+# Natural Language Classifier Demo
 [![Build Status](https://travis-ci.org/watson-developer-cloud/natural-language-classifier-nodejs.svg?branch=master)](http://travis-ci.org/watson-developer-cloud/natural-language-classifier-nodejs)
 [![codecov.io](https://codecov.io/github/watson-developer-cloud/natural-language-classifier-nodejs/coverage.svg?branch=master)](https://codecov.io/github/watson-developer-cloud/natural-language-classifier-nodejs?branch=master)
 
