@@ -149,7 +149,7 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
 
 ### Privacy Notice
 
-The TodoMVC node sample web application includes code to track deployments to Bluemix and other Cloud Foundry platforms. The following information is sent to a [Deployment Tracker][deploy_track_url] service on each deployment:
+This node sample web application includes code to track deployments to Bluemix and other Cloud Foundry platforms. The following information is sent to a [Deployment Tracker][deploy_track_url] service on each deployment:
 
 * Application Name (`application_name`)
 * Space ID (`space_id`)
