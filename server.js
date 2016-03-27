@@ -5,6 +5,9 @@
 if (process.env.CLASSIFIER_ID){
   process.env.CLASSIFIER_ID = process.env.CLASSIFIER_ID.replace(/\"/g,'');
 }
+if (process.env.GOOGLE_ANALYTICS){
+  process.env.GOOGLE_ANALYTICS = process.env.GOOGLE_ANALYTICS.replace(/\"/g,'');
+}
 // Deployment tracking
 require('cf-deployment-tracker-client').track();
 

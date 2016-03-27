@@ -34,7 +34,10 @@ var nlClassifier = watson.natural_language_classifier({
 
 // render index page
 app.get('/', function(req, res) {
-  res.render('index', { ct: req._csrfToken });
+  res.render('index', {
+    ct: req._csrfToken,
+    ga: process.env.GOOGLE_ANALYTICS
+  });
 });
 
 // Call the pre-trained classifier with body.text
