@@ -71,7 +71,7 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
 
 1. Configure the code to connect to your service:
 
-	1. Copy the credentials from your `natural-language-classifier-service` service in Bluemix. Run the following command:
+	1. Copy the credentials from your `natural-language-classifier-standard` service in Bluemix. Run the following command:
 
 		```sh
 		$ cf env <application-name>
@@ -91,7 +91,7 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
 				  "username": "<username>"
 				}
 				"label": "natural-language-classifier",
-				"name": "natural-language-classifier-service",
+				"name": "natural-language-classifier-standard",
 				"plan": "standard",
 				"tags": [
 				  ...
