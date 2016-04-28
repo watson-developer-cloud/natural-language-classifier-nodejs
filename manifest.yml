@@ -4,7 +4,7 @@ declared-services:
     plan: standard
 applications:
 - services:
-  - natural-language-classifier-service
+  - natural-language-classifier-standard
   name: natural-language-classifier-demo
   command: npm start
   path: .

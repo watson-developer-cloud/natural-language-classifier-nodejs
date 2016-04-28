@@ -37,7 +37,7 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
 1. Create the Natural Language Classifier service in Bluemix.
 
 	```sh
-	$ cf create-service natural_language_classifier standard natural-language-classifier-service
+	$ cf create-service natural_language_classifier standard natural-language-classifier-standard
 	```
 
 1. Push your app to make it live:
