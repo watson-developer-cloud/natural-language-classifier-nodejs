@@ -20,7 +20,7 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
 	```
 	applications:
 	- services:
-	  - natural-language-classifier-service
+	  - natural-language-classifier-standard
 	  name: <application-name>
 	  command: node app.js
 	  path: .
