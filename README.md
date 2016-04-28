@@ -20,7 +20,7 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
 	```
 	applications:
 	- services:
-	  - natural-language-classifier-service
+	  - natural-language-classifier-standard
 	  name: <application-name>
 	  command: node app.js
 	  path: .
@@ -37,7 +37,7 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
 1. Create the Natural Language Classifier service in Bluemix.
 
 	```sh
-	$ cf create-service natural_language_classifier standard natural-language-classifier-service
+	$ cf create-service natural_language_classifier standard natural-language-classifier-standard
 	```
 
 1. Push your app to make it live:
@@ -71,7 +71,7 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
 
 1. Configure the code to connect to your service:
 
-	1. Copy the credentials from your `natural-language-classifier-service` service in Bluemix. Run the following command:
+	1. Copy the credentials from your `natural-language-classifier-standard` service in Bluemix. Run the following command:
 
 		```sh
 		$ cf env <application-name>
@@ -91,7 +91,7 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
 				  "username": "<username>"
 				}
 				"label": "natural-language-classifier",
-				"name": "natural-language-classifier-service",
+				"name": "natural-language-classifier-standard",
 				"plan": "standard",
 				"tags": [
 				  ...
