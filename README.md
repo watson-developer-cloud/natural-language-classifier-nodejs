@@ -118,7 +118,7 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
 1. Run the following command to start the application:
 
 	```node
-	node app.js
+	npm start
 	```
 
 1. Point your browser to [http://localhost:3000](http://localhost:3000).
