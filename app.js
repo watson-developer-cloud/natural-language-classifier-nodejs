@@ -14,48 +14,44 @@
  * limitations under the License.
  */
 
-'use strict';
 
-var express    = require('express'),
-  app          = express(),
-  watson       = require('watson-developer-cloud');
+require('dotenv');
+const express = require('express');
+const app = express();
+const NaturalLanguageClassifierV1 = require('watson-developer-cloud/natural-language-classifier/v1');
 
 // Bootstrap application settings
 require('./config/express')(app);
 
-// Create the service wrapper
-var nlClassifier = watson.natural_language_classifier({
-  url : 'https://gateway.watsonplatform.net/natural-language-classifier/api',
-  username : '<username>',
-  password : '<password>',
-  version  : 'v1'
 
+const classifier = new NaturalLanguageClassifierV1({
+  // If unspecified here, the NATURAL_LANGUAGE_CLASSIFIER_USERNAME and
+  // NATURAL_LANGUAGE_CLASSIFIER_PASSWORD env properties will be checked
+  // After that, the SDK will fall back to the bluemix-provided VCAP_SERVICES environment property
+  // username: '<username>',
+  // password: '<password>',
 });
 
-// render index page
-app.get('/', function(req, res) {
-  res.render('index', {
-    ct: req._csrfToken,
-    ga: process.env.GOOGLE_ANALYTICS
-  });
+app.get('/', (req, res) => {
+  res.render('index');
 });
 
-// Call the pre-trained classifier with body.text
-// Responses are json
-app.post('/api/classify', function(req, res, next) {
-  var params = {
-    classifier: process.env.CLASSIFIER_ID || '<classifier-id>', // pre-trained classifier
-    text: req.body.text
-  };
-
-  nlClassifier.classify(params, function(err, results) {
-    if (err)
+/**
+ * Classify text
+ */
+app.post('/api/classify', (req, res, next) =>
+  classifier.classify({
+    text: req.body.text,
+    classifier_id: process.env.CLASSIFIER_ID || '<classifier-id>',
+  }, (err, data) => {
+    if (err) {
       return next(err);
-    else
-      res.json(results);
-  });
-});
+    }
+    return res.json(data);
+  })
+);
 
+// error-handler settings
 require('./config/error-handler')(app);
 
 module.exports = app;
