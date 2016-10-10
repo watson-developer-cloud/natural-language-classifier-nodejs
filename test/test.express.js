@@ -23,12 +23,12 @@ const request = require('supertest');
 const nock = require('nock');
 
 describe('express', () => {
-  it('load home page when GET /', (done) => {
-    request(app).get('/').expect(200, done);
-  });
+  it('load home page when GET /', () =>
+    request(app).get('/').expect(200)
+  );
 
-  it('404 when page not found', (done) =>
-    request(app).get('/foo/bar').expect(404, done)
+  it('404 when page not found', () =>
+    request(app).get('/foo/bar').expect(404)
   );
 
   it('200 when calling classify', (done) => {
