@@ -34,8 +34,6 @@ module.exports = function (app) {
         scriptSrc: ["'self'", 'www.google-analytics.com'], // jquery cdn, etc. try to avid "'unsafe-inline'"
         styleSrc: ["'self'", "'unsafe-inline'"], // no inline css
         imgSrc: ["'self'", 'www.google-analytics.com'], // should be "'self'" and possibly 'data:' for most apps
-        connectSrc: ["'self'", '*.watsonplatform.net'], // ajax domains
-        // fontSrc: ["'self'"], // cdn?
         frameAncestors: [], // parent iframes
         formAction: ["'self'"], // where can forms submit to
         reportUri: cspReportUrl,
