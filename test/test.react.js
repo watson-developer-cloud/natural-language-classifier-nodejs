@@ -13,24 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- /* eslint no-unused-vars: "off" */
+const assert = require('assert');
+const React = require('react');
+const ReactDOMServer = require('react-dom/server');
+require('babel-register');
 
-
-module.exports = function (app) {
-  // catch 404 and forward to error handler
-  app.use((req, res, next) => {
-    const err = new Error('Not Found');
-    err.code = 404;
-    err.message = 'Not Found';
-    next(err);
+describe('react', () => {
+  it('should render some html', () => {
+    const index = require('../views/index.jsx').default;
+    const element = React.createElement(index, null);
+    const result = ReactDOMServer.renderToString(element);
+    assert(result);
+    assert.equal(result.substr(0, 5), '<html');
   });
-
-  // error handler
-  app.use((err, req, res, next) => {
-    const error = {
-      code: err.code || 500,
-      error: err.error || err.message,
-    };
-    res.status(error.code).json(error);
-  });
-};
+});

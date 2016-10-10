@@ -14,24 +14,44 @@
  * limitations under the License.
  */
 
-'use strict';
 
 // Module dependencies
-var express    = require('express'),
-  bodyParser   = require('body-parser');
+const express = require('express');
+const bodyParser = require('body-parser');
+const expressBrowserify = require('express-browserify');
+const path = require('path');
+const morgan = require('morgan');
 
 module.exports = function (app) {
-  // Configure Express
-  app.set('view engine', 'ejs');
-  app.use(bodyParser.urlencoded({ extended: true}));
-  app.use(bodyParser.json({}));
+  app.enable('trust proxy');
+  app.set('view engine', 'jsx');
+  app.engine('jsx', require('express-react-views').createEngine());
 
-  // Setup static public directory
-  app.use(express.static(__dirname + '/../public'));
 
-  // When running in Bluemix add rate-limitation
-  // and some other features around security
-  if (process.env.VCAP_APPLICATION)
+  // Only loaded when running in Bluemix
+  if (process.env.VCAP_APPLICATION) {
     require('./security')(app);
+  }
 
+  // automatically bundle the front-end js on the fly
+  // note: this should come before the express.static since bundle.js is in the public folder
+  const isDev = (app.get('env') === 'development');
+  const browserifyier = expressBrowserify('./public/js/bundle.jsx', {
+    watch: isDev,
+    debug: isDev,
+    extension: ['jsx'],
+    transform: ['babelify'],
+  });
+  if (!isDev) {
+    browserifyier.browserify.transform('uglifyify', { global: true });
+  }
+  app.get('/js/bundle.js', browserifyier);
+
+  // Configure Express
+  app.use(bodyParser.json({ limit: '1mb' }));
+  app.use(bodyParser.urlencoded({ extended: false }));
+  app.use(express.static(path.join(__dirname, '..', 'public')));
+  app.use(express.static(path.join(__dirname, '..', 'node_modules/watson-react-components/dist/')));
+  app.use(morgan('dev'));
 };
+

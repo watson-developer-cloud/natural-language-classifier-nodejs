@@ -1,7 +1,4 @@
-# Natural Language Classifier Demo
-[![Build Status](https://travis-ci.org/watson-developer-cloud/natural-language-classifier-nodejs.svg?branch=master)](http://travis-ci.org/watson-developer-cloud/natural-language-classifier-nodejs)
-[![codecov.io](https://codecov.io/github/watson-developer-cloud/natural-language-classifier-nodejs/coverage.svg?branch=master)](https://codecov.io/github/watson-developer-cloud/natural-language-classifier-nodejs?branch=master)
-
+# Natural Language Classifier Demo [![Build Status](https://travis-ci.org/watson-developer-cloud/natural-language-classifier-nodejs.svg?branch=master)](http://travis-ci.org/watson-developer-cloud/natural-language-classifier-nodejs)
 
   The IBM Watson&trade; Natural Language Classifier service applies deep learning techniques to make predictions about the best predefined classes for short sentences or phrases. The classes can trigger a corresponding action in an application, such as directing a request to a location or person, or answering a question. After training, the service returns information for texts that it hasn't seen before. The response includes the name of the top classes and confidence values.
 
@@ -17,14 +14,14 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
 
 1. Edit the `manifest.yml` file and change `<application-name>` to something unique. The name you use determines the URL of your application. For example, `<application-name>.mybluemix.net`.
 
-	```
+	```yaml
 	applications:
 	- services:
-	  - natural-language-classifier-standard
+	  - my-service-instance
 	  name: <application-name>
-	  command: node app.js
+	  command: npm start
 	  path: .
-	  memory: 128M
+	  memory: 512M
 	```
 
 1. Connect to Bluemix with the command line tool.
@@ -37,7 +34,7 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
 1. Create the Natural Language Classifier service in Bluemix.
 
 	```sh
-	$ cf create-service natural_language_classifier standard natural-language-classifier-standard
+	$ cf create-service natural_language_classifier standard my-service-instance
 	```
 
 1. Push your app to make it live:
@@ -46,7 +43,7 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
 	$ cf push
 	```
 
-1. [Create and train](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/nl-classifier/get_start.shtml#create) the NLC service using the weather training data. Take note of the `<classifier-id>`.
+1. [Create and train](http://www.ibm.com/watson/developercloud/doc/nl-classifier/get_start.shtml#create) the NLC service using the weather training data. Take note of the `<classifier-id>`.
 
 1. To configure the [app.js](app.js#L48) file to use your classifier, export the classifier ID as an environment variable.
 
@@ -63,15 +60,16 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
 	For more details about developing applications that use Watson Developer Cloud services in Bluemix, see [Getting started with Watson Developer Cloud and Bluemix][getting_started].
 
 ## Running locally
+
 1. Download and install [Node.js](http://nodejs.org/) and [npm](https://www.npmjs.com/).
 
 1. Create an instance of the Natural Language Classifier service on Bluemix.
 
-1. [Create and train](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/nl-classifier/get_start.shtml#create) the NLC service using, for example, the weather training data. Note the value of the `Classifier ID` in the response.
+1. [Create and train](http://www.ibm.com/watson/developercloud/doc/nl-classifier/get_start.shtml#create) the NLC service using, for example, the weather training data. Note the value of the `Classifier ID` in the response.
 
 1. Configure the code to connect to your service:
 
-	1. Copy the credentials from your `natural-language-classifier-standard` service in Bluemix. Run the following command:
+	1. Copy the credentials from your `my-service-instance` service in Bluemix. Run the following command:
 
 		```sh
 		$ cf env <application-name>
@@ -91,7 +89,7 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
 				  "username": "<username>"
 				}
 				"label": "natural-language-classifier",
-				"name": "natural-language-classifier-standard",
+				"name": "my-service-instance",
 				"plan": "standard",
 				"tags": [
 				  ...
@@ -102,28 +100,27 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
 		}
 		```
 
-	1. Copy `username`, `password`, and `url` from the credentials.
-	1. Open the `app.js` file and paste the username, password, and url credentials for the service.
-	1. In the `app.js` file paste the "Classifier ID". Save the `app.js` file.
+	1. Rename `.env.example` to be `.env` and update it with `username`, `password`, and `Classifier ID`.
 
+	```none
+  CLASSIFIER_ID=
+  NATURAL_LANGUAGE_CLASSIFIER_USERNAME=
+  NATURAL_LANGUAGE_CLASSIFIER_PASSWORD=
+  ```
 
-1. Install the Natural Language Classifier Node.js package:
-	1. Change to the new directory that contains the project.
-	2. Run the following command:node
+1. Install the dependencies:
 
-	```node
+	```sh
 	$ npm install
 	```
 
-1. Run the following command to start the application:
+1. Start the application:
 
-	```node
+	```sh
 	npm start
 	```
 
 1. Point your browser to [http://localhost:3000](http://localhost:3000).
-
-1. Train the classifier, if you haven't already. See the step earlier under Getting started.
 
 
 ## Troubleshooting
@@ -136,34 +133,41 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
 
 * For more details about the service, see the [documentation][nlc_docs] for the Natural Language Classifier.
 
+
+----
+
+### Directory structure
+
+```none
+.
+├── app.js                      // express routes
+├── config                      // express configuration
+│   ├── error-handler.js
+│   ├── express.js
+│   └── security.js
+├── manifest.yml
+├── package.json
+├── public                      // static resources
+├── server.js                   // entry point
+├── test                        // unit tests
+├── training
+│   └── weather_data_train.csv  // training file
+└── views                       // react components
+```
+
 ## License
 
-  This sample code is licensed under Apache 2.0. Full license text is available in [LICENSE](LICENSE).  
-  This sample uses [jquery](https://jquery.com/) which is MIT license
+  This sample code is licensed under Apache 2.0.
+
 ## Contributing
 
-  See [CONTRIBUTING](CONTRIBUTING.md).
+  See [CONTRIBUTING](.github/CONTRIBUTING.md).
 
 ## Open Source @ IBM
   Find more open source projects on the [IBM Github Page](http://ibm.github.io/)
 
-### Privacy Notice
-
-This node sample web application includes code to track deployments to Bluemix and other Cloud Foundry platforms. The following information is sent to a [Deployment Tracker][deploy_track_url] service on each deployment:
-
-* Application Name (`application_name`)
-* Space ID (`space_id`)
-* Application Version (`application_version`)
-* Application URIs (`application_uris`)
-
-This data is collected from the `VCAP_APPLICATION` environment variable in IBM Bluemix and other Cloud Foundry platforms. This data is used by IBM to track metrics around deployments of sample applications to IBM Bluemix. Only deployments of sample applications that include code to ping the Deployment Tracker service will be tracked.
-
-### Disabling Deployment Tracking
-
-Deployment tracking can be disabled by removing `require('cf-deployment-tracker-client').track();` from the beginning of the `server.js` file at the root of this repo.
-
 [deploy_track_url]: https://github.com/cloudant-labs/deployment-tracker
 [cloud_foundry]: https://github.com/cloudfoundry/cli
-[getting_started]: http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/getting_started/
-[nlc_docs]: http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/nl-classifier.html
-[sign_up]: https://console.ng.bluemix.net/registration/
+[getting_started]: https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/getting_started/
+[nlc_docs]: https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/nl-classifier.html
+[sign_up]: https://console.ng.bluemix.net/registration/ 
