@@ -14,8 +14,6 @@
  * limitations under the License.
  */
 
-
-require('dotenv');
 const express = require('express');
 const app = express();
 const NaturalLanguageClassifierV1 = require('watson-developer-cloud/natural-language-classifier/v1');
