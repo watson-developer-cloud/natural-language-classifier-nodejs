@@ -21,7 +21,6 @@ const NaturalLanguageClassifierV1 = require('watson-developer-cloud/natural-lang
 // Bootstrap application settings
 require('./config/express')(app);
 
-
 const classifier = new NaturalLanguageClassifierV1({
   // If unspecified here, the NATURAL_LANGUAGE_CLASSIFIER_USERNAME and
   // NATURAL_LANGUAGE_CLASSIFIER_PASSWORD env properties will be checked
