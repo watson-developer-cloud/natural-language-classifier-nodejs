@@ -52,7 +52,7 @@ export default React.createClass({
           categorize your weather-related question. In this demo, the classifier is
           trained to determine whether the question is related
           to <code className="base--code">temperature</code> or
-          &nbsp;<code className="base--code">conditions</code> conditions.
+          &nbsp;<code className="base--code">conditions</code>.
           The output includes
           the top classification and a confidence score.
         </p>
