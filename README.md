@@ -1,4 +1,5 @@
-# Natural Language Classifier Demo [![Build Status](https://travis-ci.org/watson-developer-cloud/natural-language-classifier-nodejs.svg?branch=master)](http://travis-ci.org/watson-developer-cloud/natural-language-classifier-nodejs)
+# Natural Language Classifier Demo [![Build Status](https://travis-ci.org/watson-developer-cloud/natural-language-classifier-nodejs.svg?branch=master)](http://travis-ci.org/watson-developer-cloud/natural-language-classifier-nodejs) [![codecov](https://codecov.io/gh/watson-developer-cloud/natural-language-classifier-nodejs/branch/master/graph/badge.svg)](https://codecov.io/gh/watson-developer-cloud/natural-language-classifier-nodejs)
+
 
   The IBM Watson&trade; Natural Language Classifier service applies deep learning techniques to make predictions about the best predefined classes for short sentences or phrases. The classes can trigger a corresponding action in an application, such as directing a request to a location or person, or answering a question. After training, the service returns information for texts that it hasn't seen before. The response includes the name of the top classes and confidence values.
 
@@ -170,4 +171,4 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
 [cloud_foundry]: https://github.com/cloudfoundry/cli
 [getting_started]: https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/getting_started/
 [nlc_docs]: https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/nl-classifier.html
-[sign_up]: https://console.ng.bluemix.net/registration/ 
+[sign_up]: https://console.ng.bluemix.net/registration/
