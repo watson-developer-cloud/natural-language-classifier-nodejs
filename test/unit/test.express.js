@@ -20,7 +20,6 @@ require('dotenv').config({ path: path.join(__dirname, '../../.env.example') });
 
 const app = require('../../app');
 const request = require('supertest');
-const nock = require('nock');
 
 describe('express', () => {
   it('load home page when GET /', () =>
@@ -30,30 +29,4 @@ describe('express', () => {
   it('404 when page not found', () =>
     request(app).get('/foo/bar').expect(404)
   );
-
-  it('200 when calling classify', (done) => {
-    const server = 'https://gateway.watsonplatform.net:443';
-    const text = 'classify me';
-
-    const response = {
-      classifier_id: '<classifier-id>',
-      text,
-      top_class: 'bar',
-      classes: [{
-        class_name: 'bar',
-        confidence: 0.99,
-      }, {
-        class_name: 'foo',
-        confidence: 0.01,
-      }],
-    };
-    nock(server)
-      .post('/natural-language-classifier/api/v1/classifiers/%3Cclassifier-id%3E/classify', { text })
-      .reply(200, response);
-
-    request(app)
-      .post('/api/classify')
-      .send({ text })
-      .expect(200, response, done);
-  });
 });
