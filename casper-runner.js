@@ -20,7 +20,7 @@ if (!fs.existsSync('.env')) {
 }
 const spawn = require('child_process').spawn;
 
-require('dotenv').config({ silent: true });
+require('dotenv').config();
 
 const app = require('./app');
 const port = 3000;

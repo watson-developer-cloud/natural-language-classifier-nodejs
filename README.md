@@ -15,113 +15,83 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
 
 1. Edit the `manifest.yml` file and change `<application-name>` to something unique. The name you use determines the URL of your application. For example, `<application-name>.mybluemix.net`.
 
-	```yaml
-	applications:
-	- services:
-	  - my-service-instance
-	  name: <application-name>
-	  command: npm start
-	  path: .
-	  memory: 512M
-	```
+  ```yaml
+  applications:
+  - services:
+    - my-service-instance
+    name: <application-name>
+    command: npm start
+    path: .
+    memory: 512M
+  ```
 
 1. Connect to Bluemix with the command line tool.
 
-	```sh
-	$ cf api https://api.ng.bluemix.net
-	$ cf login -u <your user ID>
-	```
-
-1. Create the Natural Language Classifier service in Bluemix.
-
-	```sh
-	$ cf create-service natural_language_classifier standard my-service-instance
-	```
-
-1. Push your app to make it live:
-
-	```sh
-	$ cf push
-	```
-
-1. [Create and train](http://www.ibm.com/watson/developercloud/doc/nl-classifier/get_start.shtml#create) the NLC service using the weather training data. Take note of the `<classifier-id>`.
-
-1. To configure the [app.js](app.js#L48) file to use your classifier, export the classifier ID as an environment variable.
-
-	```sh
-	$ cf set-env <application-name> CLASSIFIER_ID <classifier-id>
-	```
-
-1. Finally, restage the application to ensure the environment variable is set.
-
-	```sh
-	$ cf restage <application-name>
-	```
-
-	For more details about developing applications that use Watson Developer Cloud services in Bluemix, see [Getting started with Watson Developer Cloud and Bluemix][getting_started].
-
-## Running locally
-
-1. Download and install [Node.js](http://nodejs.org/) and [npm](https://www.npmjs.com/).
-
-1. Create an instance of the Natural Language Classifier service on Bluemix.
-
-1. [Create and train](http://www.ibm.com/watson/developercloud/doc/nl-classifier/get_start.shtml#create) the NLC service using, for example, the weather training data. Note the value of the `Classifier ID` in the response.
-
-1. Configure the code to connect to your service:
-
-	1. Copy the credentials from your `my-service-instance` service in Bluemix. Run the following command:
-
-		```sh
-		$ cf env <application-name>
-		```
-
-		Example output:
-
-		```sh
-		System-Provided:
-		{
-		  "VCAP_SERVICES": {
-			"natural_language_classifier": [
-			  {
-				"credentials": {
-				  "password": "<password>",
-				  "url": "<url>",
-				  "username": "<username>"
-				}
-				"label": "natural-language-classifier",
-				"name": "my-service-instance",
-				"plan": "standard",
-				"tags": [
-				  ...
-				]
-			  }
-			]
-		  }
-		}
-		```
-
-	1. Rename `.env.example` to be `.env` and update it with `username`, `password`, and `Classifier ID`.
-
-	```none
-  CLASSIFIER_ID=
-  NATURAL_LANGUAGE_CLASSIFIER_USERNAME=
-  NATURAL_LANGUAGE_CLASSIFIER_PASSWORD=
+  ```sh
+  $ cf api https://api.ng.bluemix.net
+  $ cf login
   ```
 
-1. Install the dependencies:
+1. Create and retrieve service keys to access the [Natural Language CLassifier][nlc_docs] service:
 
-	```sh
-	$ npm install
-	```
+  ```none
+  cf create-service natural_language_classifier standard my-nlc-service
+  cf create-service-key my-nlc-service myKey
+  cf service-key my-nlc-service myKey
+  ```
 
-1. Start the application:
+1. The Natural Language Classifier service must be trained before you can successfully use this application. The training data is provided in the file `training/weather_data_train.csv`. Train a classifier by using the following command:
 
-	```sh
-	npm start
-	```
+  ```none
+  curl -i -u "<username>":"<password>" \
+  -F training_data=@training/weather_data_train.csv \
+  -F training_metadata="{\"language\":\"en\",\"name\":\"TutorialClassifier\"}" \
+  "https://gateway.watsonplatform.net/natural-language-classifier/api/v1/classifiers"
+  ```
+  Copy `<username>` and `<password>` from step 5
+
+1. Create a `.env` file in the root directory by copying the sample `.env.example` file using the following command:
+
+  ```none
+  cp .env.example .env
+  ```
+  You will update the `.env` with the information you retrieved in steps 5 and 6
+
+  The `.env` file will look something like the following:
+
+  ```none
+  NATURAL_LANGUAGE_CLASSIFIER_USERNAME=
+  NATURAL_LANGUAGE_CLASSIFIER_PASSWORD=
+  CLASSIFIER_ID=
+  ```
+
+1. Install the dependencies you application need:
+
+  ```none
+  npm install
+  ```
+
+1. Start the application locally:
+
+  ```none
+  npm start
+  ```
 
 1. Point your browser to [http://localhost:3000](http://localhost:3000).
+
+
+1. **Optional:** Push the application to Bluemix:
+
+  ```none
+  cf push
+  ```
+
+After completing the steps above, you are ready to test your application. Start a browser and enter the URL of your application.
+
+            <your application name>.mybluemix.net
+
+
+For more details about developing applications that use Watson Developer Cloud services in Bluemix, see [Getting started with Watson Developer Cloud and Bluemix][getting_started].
 
 
 ## Troubleshooting
@@ -166,6 +136,21 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
 
 ## Open Source @ IBM
   Find more open source projects on the [IBM Github Page](http://ibm.github.io/)
+
+## Privacy Notice
+
+Sample web applications that include this package may be configured to track deployments to [IBM Bluemix](https://www.bluemix.net/) and other Cloud Foundry platforms. The following information is sent to a [Deployment Tracker](https://github.com/IBM-Bluemix/cf-deployment-tracker-service) service on each deployment:
+
+* Node.js package version
+* Node.js repository URL
+* Application Name (`application_name`)
+* Space ID (`space_id`)
+* Application Version (`application_version`)
+* Application URIs (`application_uris`)
+* Labels of bound services
+* Number of instances for each bound service and associated plan information
+
+This data is collected from the `package.json` file in the sample application and the `VCAP_APPLICATION` and `VCAP_SERVICES` environment variables in IBM Bluemix and other Cloud Foundry platforms. This data is used by IBM to track metrics around deployments of sample applications to IBM Bluemix to measure the usefulness of our examples, so that we can continuously improve the content we offer to you. Only deployments of sample applications that include code to ping the Deployment Tracker service will be tracked.
 
 [deploy_track_url]: https://github.com/cloudant-labs/deployment-tracker
 [cloud_foundry]: https://github.com/cloudfoundry/cli

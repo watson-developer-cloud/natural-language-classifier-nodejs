@@ -13,6 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+const path = require('path');
+// load default variables for testing
+require('dotenv').config({ path: path.join(__dirname, '../../.env.example') });
+
 const assert = require('assert');
 const React = require('react');
 const ReactDOMServer = require('react-dom/server');

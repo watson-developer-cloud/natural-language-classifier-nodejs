@@ -1,8 +1,13 @@
 language: node_js
-sudo: true
-node_js: stable
+dist: trusty
+sudo: required
+node_js: 6
 script:
-- npm test
+- npm run test
+
+cache:
+  directories:
+  - node_modules
 env:
   global:
   - CF_APP=natural-language-classifier-demo
