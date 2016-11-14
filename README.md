@@ -3,9 +3,6 @@
 
   The IBM Watson&trade; Natural Language Classifier service applies deep learning techniques to make predictions about the best predefined classes for short sentences or phrases. The classes can trigger a corresponding action in an application, such as directing a request to a location or person, or answering a question. After training, the service returns information for texts that it hasn't seen before. The response includes the name of the top classes and confidence values.
 
-Give it a try! Click the button below to fork into IBM DevOps Services and deploy your own copy of this application on Bluemix.
-
-[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/watson-developer-cloud/natural-language-classifier-nodejs)
 
 ## Getting started
 
@@ -28,8 +25,8 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
 1. Connect to Bluemix with the command line tool.
 
   ```sh
-  $ cf api https://api.ng.bluemix.net
-  $ cf login
+  cf api https://api.ng.bluemix.net
+  cf login
   ```
 
 1. Create and retrieve service keys to access the [Natural Language CLassifier][nlc_docs] service:
@@ -40,7 +37,8 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
   cf service-key my-nlc-service myKey
   ```
 
-1. The Natural Language Classifier service must be trained before you can successfully use this application. The training data is provided in the file `training/weather_data_train.csv`. Train a classifier by using the following command:
+1. The Natural Language Classifier service must be trained before you can successfully use this application. The training data is provided in the file `training/weather_data_train.csv`.  
+ Train a classifier by using the following command:
 
   ```none
   curl -i -u "<username>":"<password>" \
@@ -79,7 +77,6 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
 
 1. Point your browser to [http://localhost:3000](http://localhost:3000).
 
-
 1. **Optional:** Push the application to Bluemix:
 
   ```none
@@ -99,7 +96,7 @@ For more details about developing applications that use Watson Developer Cloud s
 * The main source of troubleshooting and recovery information is the Bluemix log. To view the log, run the following command:
 
   ```sh
-  $ cf logs <application-name> --recent
+  cf logs <application-name> --recent
   ```
 
 * For more details about the service, see the [documentation][nlc_docs] for the Natural Language Classifier.
