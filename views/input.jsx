@@ -129,8 +129,8 @@ export default React.createClass({
           </div>
           <div className="sample-questions--right">
             <p className="base--p">The classifier often scores well with terms that it hasn't
-              been trained on. In the sample questions, the words "sleet," "foggy,"
-              and "typhoon" are not part of the&nbsp;
+              been trained on. In the sample questions, the words "sleet," or "foggy,"
+              are not part of the&nbsp;
               <a
                 className="base--a"
                 href="https://github.com/watson-developer-cloud/natural-language-classifier-nodejs/blob/master/training/weather_data_train.csv"
