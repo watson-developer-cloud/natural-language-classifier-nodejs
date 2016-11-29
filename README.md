@@ -151,6 +151,6 @@ This data is collected from the `package.json` file in the sample application an
 
 [deploy_track_url]: https://github.com/cloudant-labs/deployment-tracker
 [cloud_foundry]: https://github.com/cloudfoundry/cli
-[getting_started]: https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/getting_started/
-[nlc_docs]: https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/nl-classifier.html
+[getting_started]: https://www.ibm.com/watson/developercloud/doc/getting_started/
+[nlc_docs]: https://www.ibm.com/watson/developercloud/nl-classifier.html
 [sign_up]: https://console.ng.bluemix.net/registration/
