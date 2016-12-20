@@ -31,7 +31,9 @@ function Layout(props) {
           repository="https://github.com/watson-developer-cloud/natural-language-classifier-nodejs"
           documentation="http://www.ibm.com/watson/developercloud/doc/nl-classifier"
           apiReference="http://www.ibm.com/watson/developercloud/natural-language-classifier/api/v1/"
-          version="GA" serviceIcon="/images/service-icon.png"
+          version="GA"
+          serviceIcon="/images/service-icon.png"
+          startInBluemix="https://console.ng.bluemix.net/registration/?target=/catalog/services/natural-language-classifier/"
           description={DESCRIPTION}
         />
         <div id="root">
