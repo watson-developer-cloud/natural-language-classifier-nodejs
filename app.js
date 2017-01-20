@@ -36,7 +36,7 @@ app.get('/', (req, res) => {
 /**
  * Classify text
  */
-app.post('/api/classify', (req, res, next) =>
+app.post('/api/classify', (req, res, next) => {
   classifier.classify({
     text: req.body.text,
     classifier_id: process.env.CLASSIFIER_ID || '<classifier-id>',
@@ -45,8 +45,8 @@ app.post('/api/classify', (req, res, next) =>
       return next(err);
     }
     return res.json(data);
-  })
-);
+  });
+});
 
 // error-handler settings
 require('./config/error-handler')(app);
