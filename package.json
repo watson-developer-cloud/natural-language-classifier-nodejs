@@ -40,7 +40,7 @@
     "react-prism": "^4.0.0",
     "uglifyify": "^3.0.4",
     "watson-developer-cloud": "^2.15.2",
-    "watson-react-components": "^0.5.4"
+    "watson-react-components": "^0.5.5"
   },
   "scripts": {
     "start": "node server.js",
