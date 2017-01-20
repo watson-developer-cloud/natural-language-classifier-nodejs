@@ -29,7 +29,7 @@ function Layout(props) {
         <Jumbotron
           serviceName="Natural Language Classifier"
           repository="https://github.com/watson-developer-cloud/natural-language-classifier-nodejs"
-          documentation="http://www.ibm.com/watson/developercloud/doc/nl-classifier"
+          documentation="http://www.ibm.com/watson/developercloud/doc/natural-language-classifier/index.html "
           apiReference="http://www.ibm.com/watson/developercloud/natural-language-classifier/api/v1/"
           version="GA"
           serviceIcon="/images/service-icon.png"
