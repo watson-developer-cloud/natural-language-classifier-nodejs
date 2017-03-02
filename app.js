@@ -30,7 +30,9 @@ const classifier = new NaturalLanguageClassifierV1({
 });
 
 app.get('/', (req, res) => {
-  res.render('index');
+  res.render('index', {
+    BLUEMIX_ANALYTICS: process.env.BLUEMIX_ANALYTICS,
+  });
 });
 
 /**
