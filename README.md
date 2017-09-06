@@ -3,6 +3,7 @@
 
   The IBM Watson&trade; Natural Language Classifier service applies deep learning techniques to make predictions about the best predefined classes for short sentences or phrases. The classes can trigger a corresponding action in an application, such as directing a request to a location or person, or answering a question. After training, the service returns information for texts that it hasn't seen before. The response includes the name of the top classes and confidence values.
 
+![demo](public/demo.gif)
 
 ## Getting started
 
@@ -29,7 +30,7 @@
   cf login
   ```
 
-5. Create and retrieve service keys to access the [Natural Language CLassifier][nlc_docs] service:
+5. Create and retrieve service keys to access the [Natural Language Classifier][nlc_docs] service:
 
   ```none
   cf create-service natural_language_classifier standard my-nlc-service
@@ -152,5 +153,6 @@ This data is collected from the `package.json` file in the sample application an
 [deploy_track_url]: https://github.com/cloudant-labs/deployment-tracker
 [cloud_foundry]: https://github.com/cloudfoundry/cli
 [getting_started]: https://console.bluemix.net/docs/services/watson/index.html#about
-[nlc_docs]: https://www.ibm.com/watson/services/natural-language-classifier/
-[sign_up]: https://console.bluemix.net/registration/
+[nlc_docs]: https://console.bluemix.net/docs/services/natural-language-classifier/getting-started.html
+[sign_up]: https://console.bluemix.net/registration/?target=%2Fcatalog%2Fservices%2Fnatural-language-classifier%2F
+
