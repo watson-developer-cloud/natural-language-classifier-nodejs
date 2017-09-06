@@ -13,16 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+require('dotenv').config();
 
 const fs = require('fs');
+
 if (!fs.existsSync('.env')) {
-  return;
+  process.exit(0);
 }
 const spawn = require('child_process').spawn;
 
-require('dotenv').config();
-
 const app = require('./app');
+
 const port = 3000;
 
 const server = app.listen(port, () => {

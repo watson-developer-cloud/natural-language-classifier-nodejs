@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Header, Jumbotron } from 'watson-react-components';
 
 // eslint-disable-next-line
@@ -24,30 +25,31 @@ function Layout(props) {
       <body>
         <Header
           mainBreadcrumbs="Natural Language Classifier"
-          mainBreadcrumbsUrl="http://www.ibm.com/watson/developercloud/nl-classifier.html"
+          mainBreadcrumbsUrl="https://www.ibm.com/watson/services/natural-language-classifier/"
         />
         <Jumbotron
           serviceName="Natural Language Classifier"
           repository="https://github.com/watson-developer-cloud/natural-language-classifier-nodejs"
-          documentation="http://www.ibm.com/watson/developercloud/doc/natural-language-classifier/index.html "
+          documentation="https://console.bluemix.net/docs/services/natural-language-classifier/getting-started.html"
           apiReference="http://www.ibm.com/watson/developercloud/natural-language-classifier/api/v1/"
           version="GA"
           serviceIcon="/images/service-icon.png"
-          startInBluemix="https://console.ng.bluemix.net/registration/?target=/catalog/services/natural-language-classifier/"
+          startInBluemix="https://console.bluemix.net/registration/?target=/catalog/services/natural-language-classifier/"
           description={DESCRIPTION}
         />
         <div id="root">
           {props.children}
         </div>
         <script type="text/javascript" src="js/bundle.js" />
-        <script type="text/javascript" src="js/ga.js" />
+        { props.bluemixAnalytics ? <script type="text/javascript" src="js/analytics.js" /> : null }
       </body>
     </html>
   );
 }
 
 Layout.propTypes = {
-  children: React.PropTypes.object.isRequired,
+  children: PropTypes.object.isRequired,
+  bluemixAnalytics: PropTypes.bool.isRequired,
 };
 
 export default Layout;

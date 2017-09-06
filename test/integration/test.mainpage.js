@@ -10,9 +10,9 @@ casper.test.begin('natural Language Classifier Demo', 14, function suite(test) {
   }
 
   function testSampleQuestionClick() {
-    casper.then(function (response) {
+    casper.then(function testquestion(response) {
       this.click('div.sample-questions--left li:nth-child(1)');
-      casper.waitForSelector('div.output-container', function () {
+      casper.waitForSelector('div.output-container', function selector() {
         test.assertExists('h2.base--h2', 'Output section was created');
         casper.test.assertSelectorHasText('h2.base--h2', 'Ask a question about the weather');
       });
@@ -22,28 +22,28 @@ casper.test.begin('natural Language Classifier Demo', 14, function suite(test) {
 
   function testEnterQuestion() {
     // Enter a question
-    casper.then(function () {
+    casper.then(function quest() {
       this.sendKeys('input.base--input.question-input--input', 'Is the weather outside frightful?');
       this.sendKeys('input.base--input.question-input--input', casper.page.event.key.Enter);
     });
-    casper.waitForSelector('div.output-container', function () {
+    casper.waitForSelector('div.output-container', function selector() {
       test.assertExists('h2.base--h2', 'Output section was created');
     });
   }
 
   function testEnterQuestionASK() {
     // Enter a question
-    casper.then(function () {
+    casper.then(function quest() {
       this.sendKeys('input.base--input.question-input--input', 'Is the weather outside frightful?');
-      casper.then(function () { this.click('div.question-input--button-container'); });
+      casper.then(function res() { this.click('div.question-input--button-container'); });
     });
-    casper.waitForSelector('div.output-container', function () {
+    casper.waitForSelector('div.output-container', function selector() {
       test.assertExists('h2.base--h2', 'Output section was created');
     });
   }
 
   function checkLinkDest(selectorToClick) {
-    casper.then(function () {
+    casper.then(function link() {
       this.click(selectorToClick);
       test.assertHttpStatus(200);
     });
@@ -58,7 +58,7 @@ casper.test.begin('natural Language Classifier Demo', 14, function suite(test) {
     checkLinkDest('nav.jumbotron--nav li:nth-child(3)');
   }
 
-  casper.start(baseHost, function () {
+  casper.start(baseHost, function start() {
     casper.test.comment('Starting Testing');
     test.assertHttpStatus(200, 'NLC demo is up');
     test.assertTitle('Natural Language Classifier Demo', 'Title is correct');
@@ -70,7 +70,7 @@ casper.test.begin('natural Language Classifier Demo', 14, function suite(test) {
     testEnterQuestionASK();
   });
 
-  casper.run(function () {
+  casper.run(function run() {
     test.done();
   });
 });

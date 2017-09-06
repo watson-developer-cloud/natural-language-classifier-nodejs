@@ -15,6 +15,7 @@
  */
 
 const express = require('express');
+
 const app = express();
 const NaturalLanguageClassifierV1 = require('watson-developer-cloud/natural-language-classifier/v1');
 
@@ -30,7 +31,9 @@ const classifier = new NaturalLanguageClassifierV1({
 });
 
 app.get('/', (req, res) => {
-  res.render('index');
+  res.render('index', {
+    bluemixAnalytics: !!process.env.BLUEMIX_ANALYTICS,
+  });
 });
 
 /**
