@@ -22,7 +22,7 @@ const expressBrowserify = require('express-browserify');
 const path = require('path');
 const morgan = require('morgan');
 
-module.exports = function (app) {
+module.exports = (app) => {
   app.enable('trust proxy');
   app.use(require('express-status-monitor')());
   app.set('view engine', 'jsx');

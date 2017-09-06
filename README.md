@@ -8,9 +8,9 @@
 
 1. You need a Bluemix account. If you don't have one, [sign up][sign_up]. Experimental Watson Services are free to use.
 
-1. Download and install the [Cloud-foundry CLI][cloud_foundry] tool if you haven't already.
+2. Download and install the [Cloud-foundry CLI][cloud_foundry] tool if you haven't already.
 
-1. Edit the `manifest.yml` file and change `<application-name>` to something unique. The name you use determines the URL of your application. For example, `<application-name>.mybluemix.net`.
+3. Edit the `manifest.yml` file and change `<application-name>` to something unique. The name you use determines the URL of your application. For example, `<application-name>.mybluemix.net`.
 
   ```yaml
   applications:
@@ -22,14 +22,14 @@
     memory: 512M
   ```
 
-1. Connect to Bluemix with the command line tool.
+4. Connect to Bluemix with the command line tool.
 
   ```sh
   cf api https://api.ng.bluemix.net
   cf login
   ```
 
-1. Create and retrieve service keys to access the [Natural Language CLassifier][nlc_docs] service:
+5. Create and retrieve service keys to access the [Natural Language CLassifier][nlc_docs] service:
 
   ```none
   cf create-service natural_language_classifier standard my-nlc-service
@@ -37,7 +37,7 @@
   cf service-key my-nlc-service myKey
   ```
 
-1. The Natural Language Classifier service must be trained before you can successfully use this application. The training data is provided in the file `training/weather_data_train.csv`.  
+6. The Natural Language Classifier service must be trained before you can successfully use this application. The training data is provided in the file `training/weather_data_train.csv`.  
  Train a classifier by using the following command:
 
   ```none
@@ -48,7 +48,7 @@
   ```
   Copy `<username>` and `<password>` from step 5
 
-1. Create a `.env` file in the root directory by copying the sample `.env.example` file using the following command:
+7. Create a `.env` file in the root directory by copying the sample `.env.example` file using the following command:
 
   ```none
   cp .env.example .env
@@ -63,21 +63,21 @@
   CLASSIFIER_ID=
   ```
 
-1. Install the dependencies you application need:
+8. Install the dependencies you application need:
 
   ```none
   npm install
   ```
 
-1. Start the application locally:
+9. Start the application locally:
 
   ```none
   npm start
   ```
 
-1. Point your browser to [http://localhost:3000](http://localhost:3000).
+10. Point your browser to [http://localhost:3000](http://localhost:3000).
 
-1. **Optional:** Push the application to Bluemix:
+11. **Optional:** Push the application to Bluemix:
 
   ```none
   cf push
@@ -151,6 +151,6 @@ This data is collected from the `package.json` file in the sample application an
 
 [deploy_track_url]: https://github.com/cloudant-labs/deployment-tracker
 [cloud_foundry]: https://github.com/cloudfoundry/cli
-[getting_started]: https://www.ibm.com/watson/developercloud/doc/common/index.html
-[nlc_docs]: https://www.ibm.com/watson/developercloud/nl-classifier.html
-[sign_up]: https://console.ng.bluemix.net/registration/
+[getting_started]: https://console.bluemix.net/docs/services/watson/index.html#about
+[nlc_docs]: https://www.ibm.com/watson/services/natural-language-classifier/
+[sign_up]: https://console.bluemix.net/registration/

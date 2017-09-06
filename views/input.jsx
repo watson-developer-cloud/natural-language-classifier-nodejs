@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default React.createClass({
   propTypes: {
-    data: React.PropTypes.object,
-    onClassify: React.PropTypes.func.isRequired,
+    data: PropTypes.object,
+    onClassify: PropTypes.func.isRequired,
   },
 
   getDefaultProps() {
@@ -128,9 +129,9 @@ export default React.createClass({
             </ul>
           </div>
           <div className="sample-questions--right">
-            <p className="base--p">The classifier often scores well with terms that it hasn't
-              been trained on. In the sample questions, the words "sleet," or "foggy,"
-              are not part of the&nbsp;
+            <p className="base--p">The classifier often scores well with terms that it hasn&apos;t
+              been trained on. In the sample questions, the words &quot;sleet,&quot; or
+              &quot;foggy,&quot; are not part of the&nbsp;
               <a
                 className="base--a"
                 href="https://github.com/watson-developer-cloud/natural-language-classifier-nodejs/blob/master/training/weather_data_train.csv"

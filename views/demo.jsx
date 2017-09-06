@@ -14,20 +14,20 @@ export default React.createClass({
   },
   onClassify(text) {
     $.post('/api/classify', { text })
-    .done((data) => this.setState({ data }))
-    .fail((error) => {
-      let errorMessage = 'There was a problem with the request, please try again';
-      if (error.responseJSON && error.responseJSON.error) {
-        errorMessage = error.responseJSON.error;
-      }
-      this.setState({ error: errorMessage });
-      console.error(error);
-    })
-    .always(() => {
-      $('html, body').animate({
-        scrollTop: $('.output-container').offset().top,
-      }, 500);
-    });
+      .done(data => this.setState({ data }))
+      .fail((error) => {
+        let errorMessage = 'There was a problem with the request, please try again';
+        if (error.responseJSON && error.responseJSON.error) {
+          errorMessage = error.responseJSON.error;
+        }
+        this.setState({ error: errorMessage });
+        console.error(error);
+      })
+      .always(() => {
+        $('html, body').animate({
+          scrollTop: $('.output-container').offset().top,
+        }, 500);
+      });
   },
   render() {
     return (
