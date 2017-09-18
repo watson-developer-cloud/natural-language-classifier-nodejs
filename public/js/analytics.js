@@ -34,3 +34,5 @@ function loadAnalytics() {
   ga('create', GOOGLE_ANALYTICS, 'auto');
   ga('send', 'pageview');
 }
+
+window.addEventListener('load', loadAnalytics);
