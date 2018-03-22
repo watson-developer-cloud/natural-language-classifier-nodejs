@@ -48,12 +48,11 @@ export default React.createClass({
   render() {
     return (
       <div>
-        <h2 className="base--h2">Ask a question about the weather</h2>
+        <h2 className="base--h2">Ask a given text is question or not</h2>
         <p className="base--p" >Watch the Natural Language Classifier
-          categorize your weather-related question. In this demo, the classifier is
-          trained to determine whether the question is related
-          to <code className="base--code">temperature</code> or
-          &nbsp;<code className="base--code">conditions</code>.
+          categorize your text as question or not. In this demo, the classifier is
+          trained to determine whether the text is a <code className="base--code">question</code> or
+          &nbsp;<code className="base--code">non question</code>.
           The output includes
           the top classification and a confidence score.
         </p>
@@ -66,7 +65,7 @@ export default React.createClass({
               onChange={this.handleInputChange}
               onKeyPress={this.handleKeyPress}
               id="question"
-              placeholder="Enter a weather question or Try a sample question below"
+              placeholder="Enter text to find out it is a question or not or Try a sample text below"
               className="base--input question-input--input"
               required="true"
             />
@@ -81,7 +80,7 @@ export default React.createClass({
             </button>
           </div>
         </div>
-        <h3 className="base--h3">Sample questions</h3>
+        <h3 className="base--h3">Sample text</h3>
 
         <div className="sample-questions">
           <div className="sample-questions--left">
@@ -91,7 +90,7 @@ export default React.createClass({
                   className="base--a"
                   onClick={this.onSampleQuestionClick}
                 >
-                  Is it hot outside?
+                  How are you?
                 </a>
               </li>
               <li className="base--li">
@@ -99,7 +98,7 @@ export default React.createClass({
                   className="base--a"
                   onClick={this.onSampleQuestionClick}
                 >
-                  What is the expected high for today?
+                  Are you OK?
                 </a>
               </li>
               <li className="base--li">
@@ -107,7 +106,7 @@ export default React.createClass({
                   className="base--a"
                   onClick={this.onSampleQuestionClick}
                 >
-                  Will it be foggy tomorrow morning?
+                  I'm fine
                 </a>
               </li>
               <li className="base--li">
@@ -115,7 +114,7 @@ export default React.createClass({
                   className="base--a"
                   onClick={this.onSampleQuestionClick}
                 >
-                  Should I prepare for sleet?
+                  What is DPA
                 </a>
               </li>
               <li className="base--li">
@@ -123,18 +122,18 @@ export default React.createClass({
                   className="base--a"
                   onClick={this.onSampleQuestionClick}
                 >
-                  Will there be a storm today?
+                  Data Privacay Advocate
                 </a>
               </li>
             </ul>
           </div>
           <div className="sample-questions--right">
             <p className="base--p">The classifier often scores well with terms that it hasn&apos;t
-              been trained on. In the sample questions, the words &quot;sleet,&quot; or
-              &quot;foggy,&quot; are not part of the&nbsp;
+              been trained on. In the sample text, the words &quot;OK,&quot; or
+              &quot;DPA,&quot; are not part of the&nbsp;
               <a
                 className="base--a"
-                href="https://github.com/watson-developer-cloud/natural-language-classifier-nodejs/blob/master/training/weather_data_train.csv"
+                href="https://github.com/bhuva123/natural-language-classifier-nodejs/blob/master/training/innovation_data_train.csv"
                 target="_blank"
                 rel="noopener noreferrer"
               >training data

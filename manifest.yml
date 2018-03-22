@@ -5,7 +5,7 @@ declared-services:
 applications:
 - services:
   - my-nlc-service
-  name: natural-language-classifier-demo
+  name: nlc-innovation-q1-demo
   command: npm start
   path: .
   memory: 512M
