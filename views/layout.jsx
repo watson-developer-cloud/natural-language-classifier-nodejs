@@ -24,11 +24,11 @@ function Layout(props) {
       </head>
       <body>
         <Header
-          mainBreadcrumbs="Natural Language Classifier"
+          mainBreadcrumbs="DPA Natural Language Classifier"
           mainBreadcrumbsUrl="https://www.ibm.com/watson/services/natural-language-classifier/"
         />
         <Jumbotron
-          serviceName="Natural Language Classifier"
+          serviceName="DPA Natural Language Classifier"
           repository="https://github.com/watson-developer-cloud/natural-language-classifier-nodejs"
           documentation="https://console.bluemix.net/docs/services/natural-language-classifier/getting-started.html"
           apiReference="http://www.ibm.com/watson/developercloud/natural-language-classifier/api/v1/"
