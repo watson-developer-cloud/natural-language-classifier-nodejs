@@ -66,7 +66,7 @@ export default React.createClass({
               onChange={this.handleInputChange}
               onKeyPress={this.handleKeyPress}
               id="question"
-              placeholder="Enter a weather question or Try a sample question below"
+              placeholder="Enter a weather question or Try a sample question below *"
               className="base--input question-input--input"
               required="true"
             />
@@ -79,6 +79,14 @@ export default React.createClass({
             >
               Ask
             </button>
+          </div>
+          <div className="disclaimer--message">
+            <h6 className="base--h6" >
+              * This system is for demonstration purposes only and is not intended to process
+              Personal Data. No Personal Data is to be entered into this system as it may not
+              have the necessary controls in place to meet the requirements of the General Data
+              Protection Regulation (EU) 2016/679.
+            </h6>
           </div>
         </div>
         <h3 className="base--h3">Sample questions</h3>
