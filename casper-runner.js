@@ -20,7 +20,7 @@ const fs = require('fs');
 if (!fs.existsSync('.env')) {
   process.exit(0);
 }
-const spawn = require('child_process').spawn;
+const spawn = require('child_process').spawn; // eslint-disable-line
 
 const app = require('./app');
 
