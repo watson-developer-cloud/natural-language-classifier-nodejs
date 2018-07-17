@@ -5,7 +5,6 @@ import Input from './input.jsx';
 import Output from './output.jsx';
 
 export default React.createClass({
-
   getInitialState() {
     return {
       data: null, // the /classify response
@@ -30,11 +29,12 @@ export default React.createClass({
       });
   },
   render() {
+    const { data, error } = this.state;
     return (
       <section className="_container _container_large">
         <div className="row">
-          <Input data={this.state.data} onClassify={this.onClassify} />
-          <Output data={this.state.data} error={this.state.error} />
+          <Input data={data} onClassify={this.onClassify} />
+          <Output data={data} error={error} />
         </div>
       </section>
     );

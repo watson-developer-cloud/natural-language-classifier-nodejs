@@ -6,10 +6,13 @@ import { Header, Jumbotron } from 'watson-react-components';
 const DESCRIPTION = 'Natural Language Classifier applies deep learning techniques to make predictions about the best predefined classes for short sentences or phrases.';
 
 function Layout(props) {
+  const { children } = props;
   return (
     <html lang="en">
       <head>
-        <title>Natural Language Classifier Demo</title>
+        <title>
+          Natural Language Classifier Demo
+        </title>
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -34,14 +37,14 @@ function Layout(props) {
           apiReference="http://www.ibm.com/watson/developercloud/natural-language-classifier/api/v1/"
           version="GA"
           serviceIcon="/images/service-icon.png"
-          startInBluemix="https://console.bluemix.net/registration/trial?target=%2Fdeveloper%2Fwatson%2Fcreate-project%3Fservices%3Dnatural_language_classifier%26hideTours%3Dtrue&cm_mmc%3DOSocial_Tumblr-_-Watson%2BCore_Watson%2BCore%2B-%2BPlatform-_-WW_WW-_-wdc-ref%26cm_mmc%3DOSocial_Tumblr-_-Watson%2BCore_Watson%2BCore%2B-%2BPlatform-_-WW_WW-_-wdc-ref%26cm_mmca1%3D000000OF%26cm_mmca2%3D10000409%"
+          startInBluemix="https://console.bluemix.net/registration/?target=%2Fcatalog%2Fservices%2Fnatural-language-classifier%3FhideTours%3Dtrue%26cm_mmc%3D-_-Watson%2BCore_Watson%2BCore%2B-%2BPlatform-_-WW_WW-_-wdc-ref%26cm_mmc%3D-_-Watson%2BCore_Watson%2BCore%2B-%2BPlatform-_-WW_WW-_-wdc-ref%26cm_mmca1%3D000000OF%26cm_mmca2%3D10000409"
           description={DESCRIPTION}
         />
         <div id="root">
-          {props.children}
+          {children}
         </div>
         <script type="text/javascript" src="js/bundle.js" />
-        { props.bluemixAnalytics ? <script type="text/javascript" src="https://cdn.rawgit.com/watson-developer-cloud/watson-developer-cloud.github.io/master/analytics.js" /> : null }
+        <script type="text/javascript" src="https://cdn.rawgit.com/watson-developer-cloud/watson-developer-cloud.github.io/master/analytics.js" />
       </body>
     </html>
   );
@@ -49,7 +52,6 @@ function Layout(props) {
 
 Layout.propTypes = {
   children: PropTypes.object.isRequired,
-  bluemixAnalytics: PropTypes.bool.isRequired,
 };
 
 export default Layout;

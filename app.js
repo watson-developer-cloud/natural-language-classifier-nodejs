@@ -22,18 +22,26 @@ const NaturalLanguageClassifierV1 = require('watson-developer-cloud/natural-lang
 // Bootstrap application settings
 require('./config/express')(app);
 
-const classifier = new NaturalLanguageClassifierV1({
-  // If unspecified here, the NATURAL_LANGUAGE_CLASSIFIER_USERNAME and
-  // NATURAL_LANGUAGE_CLASSIFIER_PASSWORD env properties will be checked
-  // After that, the SDK will fall back to the bluemix-provided VCAP_SERVICES environment property
-  // username: '<username>',
-  // password: '<password>',
-});
+// Create the service wrapper
+
+let classifier;
+
+if (process.env.NATURAL_LANGUAGE_CLASSIFIER_IAM_APIKEY && process.env.NATURAL_LANGUAGE_CLASSIFIER_IAM_APIKEY !== '') {
+  classifier = new NaturalLanguageClassifierV1({
+    url: process.env.NATURAL_LANGUAGE_CLASSIFIER_URL || '<service-url>',
+    iam_apikey: process.env.NATURAL_LANGUAGE_CLASSIFIER_IAM_APIKEY || '<iam_apikey>',
+    iam_url: process.env.ASSISTANT_IAM_URL || 'https://iam.bluemix.net/identity/token',
+  });
+} else {
+  classifier = new NaturalLanguageClassifierV1({
+    url: process.env.NATURAL_LANGUAGE_CLASSIFIER_URL || '<service-url>',
+    username: process.env.NATURAL_LANGUAGE_CLASSIFIER_USERNAME || '<username>',
+    password: process.env.NATURAL_LANGUAGE_CLASSIFIER_PASSWORD || '<password>',
+  });
+}
 
 app.get('/', (req, res) => {
-  res.render('index', {
-    bluemixAnalytics: !!process.env.BLUEMIX_ANALYTICS,
-  });
+  res.render('index');
 });
 
 /**
