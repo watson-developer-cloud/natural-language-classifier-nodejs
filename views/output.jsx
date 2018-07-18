@@ -5,8 +5,8 @@ export default function (prop) {
   return (
     <div className="output-container">
       {(prop.data || prop.error) ? <h2 className="base--h2">Output</h2> : null}
-      {prop.data ?
-        (
+      {prop.data
+        ? (
           <Tabs selected={0}>
             <Pane label="Results">
               <p>

@@ -48,14 +48,15 @@ export default React.createClass({
   render() {
     return (
       <div>
-        <h2 className="base--h2">Ask a question about the weather</h2>
-        <p className="base--p" >Watch the Natural Language Classifier
+        <h2 className="base--h2">
+          Ask a question about the weather
+        </h2>
+        <p className="base--p">
+          Watch the Natural Language Classifier
           categorize your weather-related question. In this demo, the classifier is
           trained to determine whether the question is related
-          to <code className="base--code">temperature</code> or
-          &nbsp;<code className="base--code">conditions</code>.
-          The output includes
-          the top classification and a confidence score.
+          to <code className="base--code">temperature</code> or &nbsp;<code className="base--code">conditions</code>.
+          The output includes the top classification and a confidence score.
         </p>
         <div className="question-input">
           <div className="question-input--input-container">
@@ -81,7 +82,7 @@ export default React.createClass({
             </button>
           </div>
           <div className="disclaimer--message">
-            <h6 className="base--h6" >
+            <h6 className="base--h6">
               * This system is for demonstration purposes only and is not intended to process
               Personal Data. No Personal Data is to be entered into this system as it may not
               have the necessary controls in place to meet the requirements of the General Data
@@ -89,7 +90,9 @@ export default React.createClass({
             </h6>
           </div>
         </div>
-        <h3 className="base--h3">Sample questions</h3>
+        <h3 className="base--h3">
+          Sample questions
+        </h3>
 
         <div className="sample-questions">
           <div className="sample-questions--left">
@@ -137,7 +140,8 @@ export default React.createClass({
             </ul>
           </div>
           <div className="sample-questions--right">
-            <p className="base--p">The classifier often scores well with terms that it hasn&apos;t
+            <p className="base--p">
+              The classifier often scores well with terms that it hasn&apos;t
               been trained on. In the sample questions, the words &quot;sleet,&quot; or
               &quot;foggy,&quot; are not part of the&nbsp;
               <a
@@ -145,8 +149,10 @@ export default React.createClass({
                 href="https://github.com/watson-developer-cloud/natural-language-classifier-nodejs/blob/master/training/weather_data_train.csv"
                 target="_blank"
                 rel="noopener noreferrer"
-              >training data
-              </a>, yet the classifier correctly handles questions about them.
+              >
+                training data
+              </a>
+              , yet the classifier correctly handles questions about them.
             </p>
           </div>
         </div>
