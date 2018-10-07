@@ -1,16 +1,19 @@
-import React from 'react';
+import React, { Component } from 'react';
 import $ from 'jquery';
 
-import Input from './input.jsx';
+import { Input } from './input.jsx';
 import Output from './output.jsx';
 
-export default React.createClass({
-  getInitialState() {
-    return {
+export class Demo extends Component {
+  constructor() {
+    super();
+    this.onClassify = this.onClassify.bind(this);
+    this.state = {
       data: null, // the /classify response
       error: null, // the error from calling /classify
     };
-  },
+  }
+
   onClassify(text) {
     $.post('/api/classify', { text })
       .done(data => this.setState({ data }))
@@ -27,7 +30,8 @@ export default React.createClass({
           scrollTop: $('.output-container').offset().top,
         }, 500);
       });
-  },
+  }
+
   render() {
     const { data, error } = this.state;
     return (
@@ -38,5 +42,10 @@ export default React.createClass({
         </div>
       </section>
     );
-  },
-});
+  }
+}
+
+Demo.propTypes = {
+};
+
+export default Demo;

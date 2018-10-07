@@ -1,5 +1,10 @@
 import React from 'react';
-import { Icon, Tabs, Pane, Code } from 'watson-react-components';
+import {
+  Icon,
+  Tabs,
+  Pane,
+  Code,
+} from 'watson-react-components';
 
 export default function (prop) {
   return (
@@ -12,10 +17,12 @@ export default function (prop) {
               <p>
                 Natural Language Classifier is&nbsp;
                 <code className="base--code">
-                  {Math.floor(prop.data.classes[0].confidence * 100)}%
+                  {Math.floor(prop.data.classes[0].confidence * 100)}
+                %
                 </code>
                 &nbsp;confident that the question submitted is talking about&nbsp;
-                <code className="base--code">{prop.data.top_class}</code>.
+                <code className="base--code">{prop.data.top_class}</code>
+                .
               </p>
             </Pane>
             <Pane label="JSON">
@@ -26,8 +33,8 @@ export default function (prop) {
           </Tabs>
         ) : null
       }
-      {prop.error ?
-        (
+      {prop.error
+        ? (
           <div className="service-error">
             <Icon type="error" />
             <p className="base--p service-error--message">{prop.error}</p>
