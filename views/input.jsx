@@ -1,26 +1,24 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-export default React.createClass({
-  propTypes: {
-    data: PropTypes.object,
-    onClassify: PropTypes.func.isRequired,
-  },
-
-  getDefaultProps() {
-    return { text: '' };
-  },
-
-  getInitialState() {
-    return { text: '' };
-  },
+export class Input extends Component {
+  constructor() {
+    super();
+    this.state = {
+      text: '',
+    };
+    this.onSampleQuestionClick = this.onSampleQuestionClick.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
+  }
 
   /**
    * When pressing the Ask button
    */
   onSubmit() {
     this.props.onClassify(this.state.text);
-  },
+  }
 
   /**
    * On sample question click
@@ -28,14 +26,14 @@ export default React.createClass({
   onSampleQuestionClick(e) {
     this.setState({ text: e.target.text });
     this.props.onClassify(e.target.text);
-  },
+  }
 
   /**
    * During changes to the text input
    */
   handleInputChange(e) {
     this.setState({ text: e.target.value });
-  },
+  }
 
   /**
    * On Input text key press
@@ -44,7 +42,8 @@ export default React.createClass({
     if (e.key === 'Enter') {
       this.props.onClassify(this.state.text);
     }
-  },
+  }
+
   render() {
     return (
       <div>
@@ -55,7 +54,12 @@ export default React.createClass({
           Watch the Natural Language Classifier
           categorize your weather-related question. In this demo, the classifier is
           trained to determine whether the question is related
-          to <code className="base--code">temperature</code> or &nbsp;<code className="base--code">conditions</code>.
+          to
+          <code className="base--code">temperature</code>
+          or
+          &nbsp;
+          <code className="base--code">conditions</code>
+          .
           The output includes the top classification and a confidence score.
         </p>
         <div className="question-input">
@@ -69,11 +73,12 @@ export default React.createClass({
               id="question"
               placeholder="Enter a weather question or Try a sample question below *"
               className="base--input question-input--input"
-              required="true"
+              required
             />
           </div>
           <div className="question-input--button-container">
             <button
+              type="button"
               disabled={this.state.text.trim().length === 0}
               onClick={this.onSubmit}
               className="base--button question-input--submit-button"
@@ -158,5 +163,12 @@ export default React.createClass({
         </div>
       </div>
     );
-  },
-});
+  }
+}
+
+Input.propTypes = {
+  data: PropTypes.object, // eslint-disable-line
+  onClassify: PropTypes.func.isRequired,
+};
+
+export default Input;
