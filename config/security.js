@@ -26,7 +26,6 @@ module.exports = (app) => {
 
   app.use('/api/', rateLimit({
     windowMs: 60 * 1000, // seconds
-    delayMs: 0,
     max: 10,
     message: JSON.stringify({
       error: 'Too many requests, please try again in 30 seconds.',
