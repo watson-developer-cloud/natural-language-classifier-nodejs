@@ -37,6 +37,7 @@
     "react-addons-pure-render-mixin": "^15.6.2",
     "react-dom": "^16.6.3",
     "react-prism": "^4.3.2",
+    "request": "^2.88.0",
     "uglifyify": "^5.0.1",
     "watson-developer-cloud": "^3.13.0",
     "watson-react-components": "^0.6.17"
