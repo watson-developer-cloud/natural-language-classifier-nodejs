@@ -41,7 +41,9 @@ if (process.env.NATURAL_LANGUAGE_CLASSIFIER_IAM_APIKEY && process.env.NATURAL_LA
 }
 
 app.get('/', (req, res) => {
-  res.render('index');
+  res.render('index', {
+    showHeader: !(req.query.hide_header == 'true' || req.query.hide_header == '1'), // eslint-disable-line
+  });
 });
 
 /**

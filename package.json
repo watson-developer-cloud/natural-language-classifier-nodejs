@@ -21,8 +21,8 @@
     "babel-register": "^6.26.0",
     "babelify": "^8.0.0",
     "body-parser": "^1.18.3",
-    "dotenv": "^6.0.0",
-    "express": "^4.16.3",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
     "express-browserify": "^1.0.2",
     "express-rate-limit": "^3.3.2",
     "express-react-views": "^0.10.5",
@@ -39,8 +39,8 @@
     "react-prism": "^4.3.2",
     "request": "^2.88.0",
     "uglifyify": "^5.0.1",
-    "watson-developer-cloud": "^3.13.0",
-    "watson-react-components": "^0.6.17"
+    "watson-developer-cloud": "^3.15.0",
+    "watson-react-components": "^0.6.18"
   },
   "scripts": {
     "start": "node server.js",
@@ -55,7 +55,7 @@
   "devDependencies": {
     "casperjs": "^1.1.4",
     "codecov": "^3.1.0",
-    "eslint": "^5.9.0",
+    "eslint": "^5.10.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
