@@ -19,10 +19,10 @@ You can view a [demo](https://natural-language-classifier-demo.ng.bluemix.net/) 
 
 ## Prerequisites
 
-1. Sign up for an [IBM Cloud account](https://console.bluemix.net/registration/).
-1. Download the [IBM Cloud CLI](https://console.bluemix.net/docs/cli/index.html#overview).
+1. Sign up for an [IBM Cloud account](https://cloud.ibm.com/registration/).
+1. Download the [IBM Cloud CLI](https://cloud.ibm.com/docs/cli/index.html#overview).
 1. Create an instance of the Natural Language Classifier service and get your credentials:
-    - Go to the [Natural Language Classifier](https://console.bluemix.net/catalog/services/natural-language-classifier) page in the IBM Cloud Catalog.
+    - Go to the [Natural Language Classifier](https://cloud.ibm.com/catalog/services/natural-language-classifier) page in the IBM Cloud Catalog.
     - Log in to your IBM Cloud account.
     - Click **Create**.
     - Click **Show** to view the service credentials.
@@ -93,7 +93,7 @@ You can view a [demo](https://natural-language-classifier-demo.ng.bluemix.net/) 
 
 ## Deploying to IBM Cloud as a Cloud Foundry Application
 
-1. Login to IBM Cloud with the [IBM Cloud CLI](https://console.bluemix.net/docs/cli/index.html#overview)
+1. Login to IBM Cloud with the [IBM Cloud CLI](https://cloud.ibm.com/docs/cli/index.html#overview)
 
     ```
     ibmcloud login

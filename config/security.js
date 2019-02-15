@@ -22,7 +22,10 @@ const helmet = require('helmet');
 
 module.exports = (app) => {
   app.use(secure());
-  app.use(helmet());
+  app.use(helmet({
+    cacheControl: false,
+    frameguard: false,
+  }));
 
   app.use('/api/', rateLimit({
     windowMs: 60 * 1000, // seconds
