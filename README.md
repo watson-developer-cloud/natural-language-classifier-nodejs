@@ -19,6 +19,8 @@ You can view a [demo](https://natural-language-classifier-demo.ng.bluemix.net/) 
 
 ## Prerequisites
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/watson-developer-cloud/natural-language-classifier-nodejs.svg)](https://greenkeeper.io/)
+
 1. Sign up for an [IBM Cloud account](https://cloud.ibm.com/registration/).
 1. Download the [IBM Cloud CLI](https://cloud.ibm.com/docs/cli/index.html#overview).
 1. Create an instance of the Natural Language Classifier service and get your credentials:
