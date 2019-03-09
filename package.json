@@ -63,7 +63,7 @@
     "eslint-plugin-react": "^7.12.4",
     "mocha": "^6.0.0",
     "phantomjs-prebuilt": "^2.1.16",
-    "supertest": "^3.4.2"
+    "supertest": "^4.0.0"
   },
   "babel": {
     "presets": [
