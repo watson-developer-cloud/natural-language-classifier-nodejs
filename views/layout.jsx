@@ -4,6 +4,7 @@ import { Header, Jumbotron } from 'watson-react-components';
 
 // eslint-disable-next-line
 const DESCRIPTION = 'Natural Language Classifier applies deep learning techniques to make predictions about the best predefined classes for short sentences or phrases.';
+const TERMS_OF_USE_URL = 'https://watson-developer-cloud.github.io/terms?name=Natural%20Language%20Classifier%20Demo';
 
 export class Layout extends React.Component {
   constructor(props) {
@@ -56,6 +57,12 @@ export class Layout extends React.Component {
             startInBluemix="https://cloud.ibm.com/registration/?target=%2Fcatalog%2Fservices%2Fnatural-language-classifier%3FhideTours%3Dtrue%26cm_mmc%3D-_-Watson%2BCore_Watson%2BCore%2B-%2BPlatform-_-WW_WW-_-wdc-ref%26cm_mmc%3D-_-Watson%2BCore_Watson%2BCore%2B-%2BPlatform-_-WW_WW-_-wdc-ref%26cm_mmca1%3D000000OF%26cm_mmca2%3D10000409"
             description={DESCRIPTION}
           /> : null }
+          <div className="_container _container_large gdpr-info">
+            By using this application, you agree to the &nbsp;
+            <a target="_blank" rel="noreferrer noopener" href={TERMS_OF_USE_URL}>
+                  Terms of Use
+            </a>
+          </div>
           <div id="root">
             {children}
           </div>

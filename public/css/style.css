@@ -84,3 +84,8 @@
 .disclaimer--message .base--h6{
   padding-top: 6px;
 }
+
+.gdpr-info {
+	font-size: 10pt;
+	margin-top: 1em;
+}
