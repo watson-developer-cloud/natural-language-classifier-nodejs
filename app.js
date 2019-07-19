@@ -17,7 +17,7 @@
 const express = require('express');
 
 const app = express();
-const NaturalLanguageClassifierV1 = require('watson-developer-cloud/natural-language-classifier/v1');
+const NaturalLanguageClassifierV1 = require('ibm-watson/natural-language-classifier/v1');
 
 // Bootstrap application settings
 require('./config/express')(app);
