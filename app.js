@@ -18,27 +18,20 @@ const express = require('express');
 
 const app = express();
 const NaturalLanguageClassifierV1 = require('ibm-watson/natural-language-classifier/v1');
+const { IamAuthenticator } = require('ibm-watson/auth');
 
 // Bootstrap application settings
 require('./config/express')(app);
 
 // Create the service wrapper
 
-let classifier;
-
-if (process.env.NATURAL_LANGUAGE_CLASSIFIER_IAM_APIKEY && process.env.NATURAL_LANGUAGE_CLASSIFIER_IAM_APIKEY !== '') {
-  classifier = new NaturalLanguageClassifierV1({
-    url: process.env.NATURAL_LANGUAGE_CLASSIFIER_URL || '<service-url>',
-    iam_apikey: process.env.NATURAL_LANGUAGE_CLASSIFIER_IAM_APIKEY || '<iam_apikey>',
-    iam_url: process.env.ASSISTANT_IAM_URL || 'https://iam.bluemix.net/identity/token',
-  });
-} else {
-  classifier = new NaturalLanguageClassifierV1({
-    url: process.env.NATURAL_LANGUAGE_CLASSIFIER_URL || '<service-url>',
-    username: process.env.NATURAL_LANGUAGE_CLASSIFIER_USERNAME || '<username>',
-    password: process.env.NATURAL_LANGUAGE_CLASSIFIER_PASSWORD || '<password>',
-  });
-}
+const classifier = new NaturalLanguageClassifierV1({
+  version: '2018-04-05',
+  authenticator: new IamAuthenticator({
+    apikey: process.env.NATURAL_LANGUAGE_CLASSIFIER_IAM_APIKEY || '<api-key>',
+  }),
+  url: process.env.NATURAL_LANGUAGE_CLASSIFIER_URL,
+});
 
 app.get('/', (req, res) => {
   res.render('index', {
@@ -52,12 +45,12 @@ app.get('/', (req, res) => {
 app.post('/api/classify', (req, res, next) => {
   classifier.classify({
     text: req.body.text,
-    classifier_id: process.env.CLASSIFIER_ID || '<classifier-id>',
+    classifierId: process.env.CLASSIFIER_ID || '<classifier-id>',
   }, (err, data) => {
     if (err) {
       return next(err);
     }
-    return res.json(data);
+    return res.json(data.result);
   });
 });
 
