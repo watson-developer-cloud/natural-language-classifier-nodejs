@@ -26,7 +26,7 @@ You can view a [demo](https://natural-language-classifier-demo.ng.bluemix.net/) 
     - Log in to your IBM Cloud account.
     - Click **Create**.
     - Click **Show** to view the service credentials.
-    - Copy the `apikey` value, or copy the `username` and `password` values if your service instance doesn't provide an `apikey`.
+    - Copy the `apikey` value.
     - Copy the `url` value.
 
 ## Configuring the application
@@ -34,14 +34,13 @@ You can view a [demo](https://natural-language-classifier-demo.ng.bluemix.net/) 
 1. The Natural Language Classifier service must be trained before you can successfully use this application. The training data is provided in the file `training/weather_data_train.csv`.  
  If you have `username` and `password` credentials, train a classifier by using the following command:
 
-  ```none
-  curl -i -u "<username>":"<password>" \
+  ```sh
+  curl -i -u "apikey":"<apikey>" \
   -F training_data=@training/weather_data_train.csv \
   -F training_metadata="{\"language\":\"en\",\"name\":\"TutorialClassifier\"}" \
   "<url>/v1/classifiers"
   ```
-  Make sure to replace `<username>`, `<password>` and `<url>`.  
-  If you have `apikey` credentials, use the word "apikey" as your username and your `apikey` as the password.  
+  Make sure to replace `<apikey>` and `<url>`.  
   After running the command, copy the value for `classifier_id`.
 
 2. In the application folder, copy the *.env.example* file and create a file called *.env*
@@ -57,16 +56,6 @@ You can view a [demo](https://natural-language-classifier-demo.ng.bluemix.net/) 
     ```
     NATURAL_LANGUAGE_CLASSIFIER_IAM_APIKEY=X4rbi8vwZmKpXfowaS3GAsA7vdy17Qh7km5D6EzKLHL2
     NATURAL_LANGUAGE_CLASSIFIER_URL=https://gateway.watsonplatform.net/natural-language-classifier/api
-    ```
-
-    - If your service instance uses `username` and `password` credentials, add the `NATURAL_LANGUAGE_CLASSIFIER_USERNAME` and `NATURAL_LANGUAGE_CLASSIFIER_PASSWORD` variables to the *.env* file.
-
-    Example *.env* file that configures the `username`, `password`, and `url` for a Natural Language Classifier service instance hosted in the Sydney region:
-
-    ```
-    NATURAL_LANGUAGE_CLASSIFIER_USERNAME=522be-7b41-ab44-dec3-g1eab2ha73c6
-    NATURAL_LANGUAGE_CLASSIFIER_PASSWORD=A4Z5BdGENrwu8
-    NATURAL_LANGUAGE_CLASSIFIER_URL=https://gateway-syd.watsonplatform.net/natural-language-classifier/api
     ```
 
 8. Add the `CLASSIFIER_ID` to the previous properties

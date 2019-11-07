@@ -16,7 +16,7 @@ export class Demo extends Component {
 
   onClassify(text) {
     $.post('/api/classify', { text })
-      .done(data => this.setState({ data }))
+      .done((data) => this.setState({ data }))
       .fail((error) => {
         let errorMessage = 'There was a problem with the request, please try again';
         if (error.responseJSON && error.responseJSON.error) {

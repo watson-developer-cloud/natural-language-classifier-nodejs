@@ -1,11 +1,5 @@
-declared-services:
-  my-nlc-service:
-    label: natural_language_classifier
-    plan: standard
 applications:
-- services:
-  - my-nlc-service
-  name: natural-language-classifier-demo
+- name: natural-language-classifier-demo
   command: npm start
   path: .
   memory: 512M
