@@ -1,3 +1,4 @@
+<h1 align="center" style="border-bottom: none;">Deprecated: this repo has been archived and will not receive further updates. It is being left in read-only mode for documentation purposes, but the code should not be considered current.</h1>
 <h1 align="center" style="border-bottom: none;">🚀 Natural Language Classifier Sample Application</h1>
 <h3 align="center">This Node.js app demonstrates some of the Natural Language Classifier service features.</h3>
 <p align="center">
